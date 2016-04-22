@@ -85,7 +85,7 @@
         <scene sceneID="BUw-e8-Awb">
             <objects>
                 <navigationController id="cFB-Jq-YDT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Reminders" image="Appointment Reminders-30.png" selectedImage="Appointment Reminders Filled-30.png" id="lhr-Zy-daD"/>
+                    <tabBarItem key="tabBarItem" title="Reminders" image="Reminders Icon" selectedImage="Reminders Selected Icon" id="lhr-Zy-daD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lgY-En-Swv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -102,7 +102,7 @@
         <scene sceneID="oMI-hX-dRB">
             <objects>
                 <navigationController id="Yqy-WV-ayZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Alarms" image="Alarm Clock-30.png" selectedImage="Alarm Clock Filled-30.png" id="ZT4-bT-qBb"/>
+                    <tabBarItem key="tabBarItem" title="Alarms" image="Alarms Icon" selectedImage="Alarms Selected Icon" id="ZT4-bT-qBb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jOg-eo-KDH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Timer/Stopwatch" image="Stopwatch-30.png" selectedImage="Stopwatch Filled-30.png" id="fm6-Ch-zLz"/>
+                    <tabBarItem key="tabBarItem" title="Timer/Stopwatch" image="Timer&amp;Stopwatch Icon" selectedImage="Timer&amp;Stopwatch Selected Icon" id="fm6-Ch-zLz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioe-fN-LwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -155,11 +155,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Alarm Clock Filled-30.png" width="30" height="30"/>
-        <image name="Alarm Clock-30.png" width="30" height="30"/>
-        <image name="Appointment Reminders Filled-30.png" width="30" height="30"/>
-        <image name="Appointment Reminders-30.png" width="30" height="30"/>
-        <image name="Stopwatch Filled-30.png" width="30" height="30"/>
-        <image name="Stopwatch-30.png" width="30" height="30"/>
+        <image name="Alarms Icon" width="30" height="30"/>
+        <image name="Alarms Selected Icon" width="30" height="30"/>
+        <image name="Reminders Icon" width="30" height="30"/>
+        <image name="Reminders Selected Icon" width="30" height="30"/>
+        <image name="Timer&amp;Stopwatch Icon" width="30" height="30"/>
+        <image name="Timer&amp;Stopwatch Selected Icon" width="30" height="30"/>
     </resources>
 </document>
