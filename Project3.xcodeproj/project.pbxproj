@@ -7,17 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D84BC2111CC9D88200EA6627 /* Alarm Clock-30.png in Resources */ = {isa = PBXBuildFile; fileRef = D84BC2101CC9D88200EA6627 /* Alarm Clock-30.png */; };
+		D84BC2131CC9D8B900EA6627 /* Alarm Clock Filled-30.png in Resources */ = {isa = PBXBuildFile; fileRef = D84BC2121CC9D8B900EA6627 /* Alarm Clock Filled-30.png */; };
+		D84BC2151CC9D8C800EA6627 /* Appointment Reminders-30.png in Resources */ = {isa = PBXBuildFile; fileRef = D84BC2141CC9D8C800EA6627 /* Appointment Reminders-30.png */; };
+		D84BC2171CC9D8D000EA6627 /* Appointment Reminders Filled-30.png in Resources */ = {isa = PBXBuildFile; fileRef = D84BC2161CC9D8D000EA6627 /* Appointment Reminders Filled-30.png */; };
+		D84BC21A1CC9DABD00EA6627 /* Stopwatch Filled-30.png in Resources */ = {isa = PBXBuildFile; fileRef = D84BC2181CC9DABD00EA6627 /* Stopwatch Filled-30.png */; };
+		D84BC21B1CC9DABD00EA6627 /* Stopwatch-30.png in Resources */ = {isa = PBXBuildFile; fileRef = D84BC2191CC9DABD00EA6627 /* Stopwatch-30.png */; };
 		D8A433041CC8572E007FA510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A433031CC8572E007FA510 /* AppDelegate.swift */; };
-		D8A433061CC8572E007FA510 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A433051CC8572E007FA510 /* ViewController.swift */; };
 		D8A433091CC8572E007FA510 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A433071CC8572E007FA510 /* Main.storyboard */; };
 		D8A4330B1CC8572E007FA510 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8A4330A1CC8572E007FA510 /* Assets.xcassets */; };
 		D8A4330E1CC8572E007FA510 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A4330C1CC8572E007FA510 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D84BC2101CC9D88200EA6627 /* Alarm Clock-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm Clock-30.png"; sourceTree = "<group>"; };
+		D84BC2121CC9D8B900EA6627 /* Alarm Clock Filled-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm Clock Filled-30.png"; sourceTree = "<group>"; };
+		D84BC2141CC9D8C800EA6627 /* Appointment Reminders-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appointment Reminders-30.png"; sourceTree = "<group>"; };
+		D84BC2161CC9D8D000EA6627 /* Appointment Reminders Filled-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appointment Reminders Filled-30.png"; sourceTree = "<group>"; };
+		D84BC2181CC9DABD00EA6627 /* Stopwatch Filled-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stopwatch Filled-30.png"; sourceTree = "<group>"; };
+		D84BC2191CC9DABD00EA6627 /* Stopwatch-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stopwatch-30.png"; sourceTree = "<group>"; };
 		D8A433001CC8572E007FA510 /* Project3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A433031CC8572E007FA510 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8A433051CC8572E007FA510 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8A433081CC8572E007FA510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8A4330A1CC8572E007FA510 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8A4330D1CC8572E007FA510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,8 +65,13 @@
 			isa = PBXGroup;
 			children = (
 				D8A433031CC8572E007FA510 /* AppDelegate.swift */,
-				D8A433051CC8572E007FA510 /* ViewController.swift */,
 				D8A433071CC8572E007FA510 /* Main.storyboard */,
+				D84BC2101CC9D88200EA6627 /* Alarm Clock-30.png */,
+				D84BC2121CC9D8B900EA6627 /* Alarm Clock Filled-30.png */,
+				D84BC2141CC9D8C800EA6627 /* Appointment Reminders-30.png */,
+				D84BC2161CC9D8D000EA6627 /* Appointment Reminders Filled-30.png */,
+				D84BC2191CC9DABD00EA6627 /* Stopwatch-30.png */,
+				D84BC2181CC9DABD00EA6627 /* Stopwatch Filled-30.png */,
 				D8A4330A1CC8572E007FA510 /* Assets.xcassets */,
 				D8A4330C1CC8572E007FA510 /* LaunchScreen.storyboard */,
 				D8A4330F1CC8572E007FA510 /* Info.plist */,
@@ -123,8 +138,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8A4330E1CC8572E007FA510 /* LaunchScreen.storyboard in Resources */,
+				D84BC2151CC9D8C800EA6627 /* Appointment Reminders-30.png in Resources */,
 				D8A4330B1CC8572E007FA510 /* Assets.xcassets in Resources */,
+				D84BC2131CC9D8B900EA6627 /* Alarm Clock Filled-30.png in Resources */,
+				D84BC2171CC9D8D000EA6627 /* Appointment Reminders Filled-30.png in Resources */,
+				D84BC2111CC9D88200EA6627 /* Alarm Clock-30.png in Resources */,
+				D84BC21B1CC9DABD00EA6627 /* Stopwatch-30.png in Resources */,
 				D8A433091CC8572E007FA510 /* Main.storyboard in Resources */,
+				D84BC21A1CC9DABD00EA6627 /* Stopwatch Filled-30.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +156,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8A433061CC8572E007FA510 /* ViewController.swift in Sources */,
 				D8A433041CC8572E007FA510 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +308,7 @@
 				D8A433141CC8572E007FA510 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

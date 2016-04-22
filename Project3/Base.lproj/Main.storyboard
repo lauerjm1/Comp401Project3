@@ -5,21 +5,39 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Alarms Table View Controller-->
         <scene sceneID="TxV-1b-ZQ8">
             <objects>
-                <tableViewController id="fu3-N3-0Y8" sceneMemberID="viewController">
+                <tableViewController id="fu3-N3-0Y8" userLabel="Alarms Table View Controller" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Du-Le-vnz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GyT-DN-RhW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="GyT-DN-RhW">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GyT-DN-RhW" id="yj1-Qn-Y9M">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRL-OF-VHH">
+                                            <rect key="frame" x="8" y="11" width="46" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="S M T W T F S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzq-Hh-bz7">
+                                            <rect key="frame" x="105" y="11" width="108" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3q-0O-M6I">
+                                            <rect key="frame" x="468" y="5" width="65" height="30"/>
+                                            <state key="normal" title="Activated"/>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -28,13 +46,13 @@
                             <outlet property="delegate" destination="fu3-N3-0Y8" id="sZc-Rp-Foh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Dji-Qf-GZE"/>
+                    <navigationItem key="navigationItem" title="Alarms" id="Dji-Qf-GZE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cg-Fj-Kbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1454" y="-238"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Reminders-->
         <scene sceneID="9e6-Mc-PYA">
             <objects>
                 <tableViewController id="pDG-1b-DIN" sceneMemberID="viewController">
@@ -57,17 +75,17 @@
                             <outlet property="delegate" destination="pDG-1b-DIN" id="CUq-5Q-Nib"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="U6d-ZQ-T7c"/>
+                    <navigationItem key="navigationItem" title="Reminders" id="U6d-ZQ-T7c"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtF-Y3-cwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1454" y="794"/>
         </scene>
-        <!--Item-->
+        <!--Reminders-->
         <scene sceneID="BUw-e8-Awb">
             <objects>
                 <navigationController id="cFB-Jq-YDT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="lhr-Zy-daD"/>
+                    <tabBarItem key="tabBarItem" title="Reminders" image="Appointment Reminders-30.png" selectedImage="Appointment Reminders Filled-30.png" id="lhr-Zy-daD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lgY-En-Swv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -80,11 +98,11 @@
             </objects>
             <point key="canvasLocation" x="634" y="794"/>
         </scene>
-        <!--Item-->
+        <!--Alarms-->
         <scene sceneID="oMI-hX-dRB">
             <objects>
                 <navigationController id="Yqy-WV-ayZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ZT4-bT-qBb"/>
+                    <tabBarItem key="tabBarItem" title="Alarms" image="Alarm Clock-30.png" selectedImage="Alarm Clock Filled-30.png" id="ZT4-bT-qBb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jOg-eo-KDH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -116,7 +134,7 @@
             </objects>
             <point key="canvasLocation" x="-192" y="291"/>
         </scene>
-        <!--Item-->
+        <!--Timer/Stopwatch-->
         <scene sceneID="tcG-be-AIM">
             <objects>
                 <viewController id="Q7C-tN-XUX" sceneMemberID="viewController">
@@ -129,11 +147,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="fm6-Ch-zLz"/>
+                    <tabBarItem key="tabBarItem" title="Timer/Stopwatch" image="Stopwatch-30.png" selectedImage="Stopwatch Filled-30.png" id="fm6-Ch-zLz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioe-fN-LwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-192" y="1081"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Alarm Clock Filled-30.png" width="30" height="30"/>
+        <image name="Alarm Clock-30.png" width="30" height="30"/>
+        <image name="Appointment Reminders Filled-30.png" width="30" height="30"/>
+        <image name="Appointment Reminders-30.png" width="30" height="30"/>
+        <image name="Stopwatch Filled-30.png" width="30" height="30"/>
+        <image name="Stopwatch-30.png" width="30" height="30"/>
+    </resources>
 </document>
