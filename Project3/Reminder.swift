@@ -45,13 +45,13 @@ class ReminderRepo {
         return rem
     }
     
-    func addReminderToRepo(name:String,rem:Reminder) {
-        list.removeValueForKey(name)
+    func addReminderToRepo(rem:Reminder) {
+        list.removeValueForKey(rem.title)
         var keyVal = Dictionary<String,AnyObject>()
         keyVal.updateValue(rem.time, forKey: "time")
         keyVal.updateValue(rem.title, forKey: "title")
         keyVal.updateValue(rem.volume, forKey: "volume")
-        list.updateValue(keyVal, forKey: name)
+        list.updateValue(keyVal, forKey: rem.title)
         let pathName = libPath.stringByAppendingPathComponent("reminders.dat")
         do {
             let data = try NSJSONSerialization.dataWithJSONObject(list, options: NSJSONWritingOptions())

@@ -46,15 +46,15 @@ class AlarmRepo {
         return alm
     }
     
-    func addAlarmToRepo(name:String,alm:Alarm) {
-        list.removeValueForKey(name)
+    func addAlarmToRepo(alm:Alarm) {
+        list.removeValueForKey(alm.title)
         var keyVal = Dictionary<String,AnyObject>()
         keyVal.updateValue(alm.time, forKey: "time")
         keyVal.updateValue(alm.daysOfWeek, forKey: "daysOfWeek")
         keyVal.updateValue(alm.activated, forKey: "activated")
         keyVal.updateValue(alm.title, forKey: "title")
         keyVal.updateValue(alm.volume, forKey: "volume")
-        list.updateValue(keyVal, forKey: name)
+        list.updateValue(keyVal, forKey: alm.title)
         let pathName = libPath.stringByAppendingPathComponent("alarms.dat")
         do {
             let data = try NSJSONSerialization.dataWithJSONObject(list, options: NSJSONWritingOptions())
