@@ -83,16 +83,6 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3D0-SR-7vd">
-                                            <rect key="frame" x="200" y="8" width="17" height="27"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="17" id="CQ5-K0-sPl"/>
-                                                <constraint firstAttribute="height" constant="27" id="eef-30-YrP"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zz-dq-9DY">
                                             <rect key="frame" x="350" y="8" width="17" height="27"/>
                                             <constraints>
@@ -103,17 +93,19 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3q-0O-M6I">
-                                            <rect key="frame" x="494" y="8" width="65" height="27"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3D0-SR-7vd">
+                                            <rect key="frame" x="200" y="8" width="17" height="27"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="65" id="jjo-7Q-v42"/>
+                                                <constraint firstAttribute="width" constant="17" id="CQ5-K0-sPl"/>
+                                                <constraint firstAttribute="height" constant="27" id="eef-30-YrP"/>
                                             </constraints>
-                                            <state key="normal" title="Activated"/>
-                                        </button>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ySy-J5-HXu" firstAttribute="leading" secondItem="3D0-SR-7vd" secondAttribute="trailing" constant="8" id="2Uj-5A-ATz"/>
-                                        <constraint firstItem="T3q-0O-M6I" firstAttribute="top" secondItem="yj1-Qn-Y9M" secondAttribute="topMargin" id="3Rf-Ak-gpo"/>
                                         <constraint firstItem="XRi-kt-Tzs" firstAttribute="top" secondItem="yj1-Qn-Y9M" secondAttribute="topMargin" id="4Z9-1W-Rwr"/>
                                         <constraint firstItem="9Zz-dq-9DY" firstAttribute="top" secondItem="yj1-Qn-Y9M" secondAttribute="topMargin" id="6zz-KY-DPd"/>
                                         <constraint firstItem="oUg-r8-7Bd" firstAttribute="bottom" secondItem="yj1-Qn-Y9M" secondAttribute="bottomMargin" id="7tk-Lh-ca7"/>
@@ -126,7 +118,6 @@
                                         <constraint firstItem="MC4-3v-rxF" firstAttribute="leading" secondItem="XRi-kt-Tzs" secondAttribute="trailing" constant="8" id="MIP-on-wjC"/>
                                         <constraint firstItem="3D0-SR-7vd" firstAttribute="top" secondItem="yj1-Qn-Y9M" secondAttribute="topMargin" id="ONy-1r-05i"/>
                                         <constraint firstItem="NRL-OF-VHH" firstAttribute="bottom" secondItem="yj1-Qn-Y9M" secondAttribute="bottomMargin" id="PcO-dt-WYj"/>
-                                        <constraint firstItem="T3q-0O-M6I" firstAttribute="bottom" secondItem="yj1-Qn-Y9M" secondAttribute="bottomMargin" id="Pff-R2-TZ7"/>
                                         <constraint firstItem="9Zz-dq-9DY" firstAttribute="leading" secondItem="MC4-3v-rxF" secondAttribute="trailing" constant="8" id="Qmz-JM-6L3"/>
                                         <constraint firstItem="b3R-WZ-UdH" firstAttribute="leading" secondItem="ySy-J5-HXu" secondAttribute="trailing" constant="8" id="RYD-XU-A1u"/>
                                         <constraint firstItem="XRi-kt-Tzs" firstAttribute="bottom" secondItem="yj1-Qn-Y9M" secondAttribute="bottomMargin" id="S7K-Hg-ZTJ"/>
@@ -142,11 +133,9 @@
                                         <constraint firstItem="3D0-SR-7vd" firstAttribute="bottom" secondItem="yj1-Qn-Y9M" secondAttribute="bottomMargin" id="thQ-LL-3hX"/>
                                         <constraint firstItem="NRL-OF-VHH" firstAttribute="leading" secondItem="yj1-Qn-Y9M" secondAttribute="leadingMargin" id="xbh-Pz-BrS"/>
                                         <constraint firstItem="MC4-3v-rxF" firstAttribute="bottom" secondItem="yj1-Qn-Y9M" secondAttribute="bottomMargin" id="zGd-ot-ajz"/>
-                                        <constraint firstItem="T3q-0O-M6I" firstAttribute="trailing" secondItem="yj1-Qn-Y9M" secondAttribute="trailingMargin" id="zju-dB-lre"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="activatedButton" destination="T3q-0O-M6I" id="Bmz-Mx-Ymc"/>
                                     <outlet property="friLabel" destination="MC4-3v-rxF" id="A3N-wY-a75"/>
                                     <outlet property="monLabel" destination="ySy-J5-HXu" id="eGG-bV-wb9"/>
                                     <outlet property="satLabel" destination="9Zz-dq-9DY" id="x5L-bI-nFf"/>
@@ -155,6 +144,7 @@
                                     <outlet property="timeLabel" destination="NRL-OF-VHH" id="Vhp-Ko-Myw"/>
                                     <outlet property="tueLabel" destination="b3R-WZ-UdH" id="kJK-XL-30t"/>
                                     <outlet property="wedLabel" destination="oUg-r8-7Bd" id="5xf-yc-7ND"/>
+                                    <segue destination="pdz-q2-aZ2" kind="show" identifier="editAlarm" trigger="accessoryAction" id="seu-eS-NUj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -164,12 +154,108 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Alarms" id="Dji-Qf-GZE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qV2-dS-B0o"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qV2-dS-B0o">
+                            <connections>
+                                <segue destination="pdz-q2-aZ2" kind="show" identifier="newAlarm" id="OMv-uF-ldS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cg-Fj-Kbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1454" y="-238"/>
+        </scene>
+        <!--Create/Edit Alarm-->
+        <scene sceneID="4YL-el-8L3">
+            <objects>
+                <viewController id="pdz-q2-aZ2" customClass="AlarmVC" customModule="Project3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lHq-zG-I8q"/>
+                        <viewControllerLayoutGuide type="bottom" id="nE0-Ga-TQA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="omq-a3-hOF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HPW-wC-xGV">
+                                <rect key="frame" x="20" y="127" width="560" height="200"/>
+                                <date key="date" timeIntervalSinceReferenceDate="483736441.01086402">
+                                    <!--2016-04-30 19:14:01 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alarm Title" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zrr-wJ-rqI">
+                                <rect key="frame" x="150" y="89" width="300" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vS-lj-3fc">
+                                <rect key="frame" x="280" y="335" width="40" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="W"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42U-Pn-kcq">
+                                <rect key="frame" x="328" y="335" width="40" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="T"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoP-IN-H4T">
+                                <rect key="frame" x="376" y="335" width="40" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="F"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-fA-Shh">
+                                <rect key="frame" x="232" y="335" width="40" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="T"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXA-Pm-IWh">
+                                <rect key="frame" x="184" y="335" width="40" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="M"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnO-5X-dEG">
+                                <rect key="frame" x="136" y="335" width="40" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="S"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fil-DD-iJD">
+                                <rect key="frame" x="424" y="335" width="40" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="S"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY2-5H-wOt">
+                                <rect key="frame" x="232" y="428" width="136" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DtE-fE-5Mx">
+                                <rect key="frame" x="276" y="461" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Create/Edit Alarm" id="fif-oM-F7n">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="eoi-KK-mGo"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activeSwitch" destination="DtE-fE-5Mx" id="X6m-1v-Uca"/>
+                        <outlet property="friBut" destination="GoP-IN-H4T" id="7cd-Nj-IoP"/>
+                        <outlet property="monBut" destination="KXA-Pm-IWh" id="YDv-IE-aMH"/>
+                        <outlet property="satBut" destination="fil-DD-iJD" id="nAZ-Et-LXB"/>
+                        <outlet property="sunBut" destination="vnO-5X-dEG" id="ywH-tH-nKs"/>
+                        <outlet property="thuBut" destination="42U-Pn-kcq" id="sTJ-JW-dOi"/>
+                        <outlet property="timePicker" destination="HPW-wC-xGV" id="x4j-7I-bfi"/>
+                        <outlet property="titleField" destination="zrr-wJ-rqI" id="R30-jX-7Wb"/>
+                        <outlet property="tueBut" destination="Wbm-fA-Shh" id="HhO-IX-lsa"/>
+                        <outlet property="wedBut" destination="7vS-lj-3fc" id="jq9-D8-rCP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XsH-x7-lmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2216" y="-238"/>
         </scene>
         <!--Reminders Table View-->
         <scene sceneID="9e6-Mc-PYA">
@@ -366,4 +452,7 @@
         <image name="Timer&amp;Stopwatch Icon" width="30" height="30"/>
         <image name="Timer&amp;Stopwatch Selected Icon" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="seu-eS-NUj"/>
+    </inferredMetricsTieBreakers>
 </document>
