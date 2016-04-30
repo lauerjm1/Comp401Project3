@@ -9,15 +9,9 @@
 import UIKit
 
 class RemdinersTableViewController: UITableViewController {
-
-    var reminders = Array<Reminder>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for (_,dict) in ReminderRepo.singleton.list {
-            reminders.append(ReminderRepo.singleton.interpretReminder(dict))
-        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
