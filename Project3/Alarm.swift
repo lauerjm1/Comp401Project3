@@ -20,7 +20,23 @@ class Alarm: NSObject {
 }
 
 class AlarmRepo {
-    var list = Dictionary<String,Dictionary<String,AnyObject>>()
+    var list = Array<Alarm>() {
+        didSet {
+            if(saving) {
+                let pathName = libPath.stringByAppendingPathComponent("alarms.dat")
+                do {
+                    var dictList = Array<Dictionary<String,AnyObject>>()
+                    for alm in list {
+                        dictList.append(interpretAlarmToDict(alm))
+                    }
+                    let data = try NSJSONSerialization.dataWithJSONObject(dictList, options: NSJSONWritingOptions())
+                    data.writeToFile(pathName, atomically: true)
+                } catch {}
+            }
+        }
+    }
+    
+    var saving = false
     let libPath:NSString = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0]
     
     static let singleton = AlarmRepo()
@@ -30,13 +46,16 @@ class AlarmRepo {
         if NSFileManager.defaultManager().fileExistsAtPath(pathName) {
             let dat = NSData(contentsOfFile: pathName)
             do {
-                let obj = try NSJSONSerialization.JSONObjectWithData(dat!, options: NSJSONReadingOptions.MutableContainers) as! Dictionary<String,Dictionary<String,AnyObject>>
-                list = obj
+                let obj = try NSJSONSerialization.JSONObjectWithData(dat!, options: NSJSONReadingOptions.MutableContainers) as! Array<Dictionary<String,AnyObject>>
+                for dict in obj {
+                    list.append(interpretDictToAlarm(dict))
+                }
             } catch {}
         }
+        saving = true
     }
     
-    func interpretAlarm(dict:Dictionary<String,AnyObject>) -> Alarm {
+    func interpretDictToAlarm(dict:Dictionary<String,AnyObject>) -> Alarm {
         let alm = Alarm()
         for(k,v) in dict {
             if alm.respondsToSelector(NSSelectorFromString(k)) {
@@ -46,28 +65,14 @@ class AlarmRepo {
         return alm
     }
     
-    func addAlarmToRepo(alm:Alarm) {
-        list.removeValueForKey(alm.title)
-        var keyVal = Dictionary<String,AnyObject>()
-        keyVal.updateValue(alm.time, forKey: "time")
-        keyVal.updateValue(alm.daysOfWeek, forKey: "daysOfWeek")
-        keyVal.updateValue(alm.activated, forKey: "activated")
-        keyVal.updateValue(alm.title, forKey: "title")
-        keyVal.updateValue(alm.volume, forKey: "volume")
-        list.updateValue(keyVal, forKey: alm.title)
-        let pathName = libPath.stringByAppendingPathComponent("alarms.dat")
-        do {
-            let data = try NSJSONSerialization.dataWithJSONObject(list, options: NSJSONWritingOptions())
-            data.writeToFile(pathName, atomically: true)
-        } catch {}
+    func interpretAlarmToDict(alm:Alarm) -> Dictionary<String,AnyObject> {
+        var dict = Dictionary<String,AnyObject>()
+        dict.updateValue(alm.time, forKey: "time")
+        dict.updateValue(alm.daysOfWeek, forKey: "daysOfWeek")
+        dict.updateValue(alm.activated, forKey: "activated")
+        dict.updateValue(alm.title, forKey: "title")
+        dict.updateValue(alm.volume, forKey: "volume")
+        return dict
     }
     
-    func deleteAlarmFromRepo(name:String) {
-        list.removeValueForKey(name)
-        let pathName = libPath.stringByAppendingPathComponent("alarms.dat")
-        do {
-            let data = try NSJSONSerialization.dataWithJSONObject(list, options: NSJSONWritingOptions())
-            data.writeToFile(pathName, atomically: true)
-        } catch {}
-    }
 }

@@ -19,7 +19,23 @@ class Reminder: NSObject {
 }
 
 class ReminderRepo {
-    var list = Dictionary<String,Dictionary<String,AnyObject>>()
+    var list = Array<Reminder>() {
+        didSet {
+            if(saving) {
+                let pathName = libPath.stringByAppendingPathComponent("reminders.dat")
+                do {
+                    var dictList = Array<Dictionary<String,AnyObject>>()
+                    for rem in list {
+                        dictList.append(interpretReminderToDict(rem))
+                    }
+                    let data = try NSJSONSerialization.dataWithJSONObject(dictList, options: NSJSONWritingOptions())
+                    data.writeToFile(pathName, atomically: true)
+                } catch {}
+            }
+        }
+    }
+    
+    var saving = false
     let libPath:NSString = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0]
     
     static let singleton = ReminderRepo()
@@ -29,13 +45,16 @@ class ReminderRepo {
         if NSFileManager.defaultManager().fileExistsAtPath(pathName) {
             let dat = NSData(contentsOfFile: pathName)
             do {
-                let obj = try NSJSONSerialization.JSONObjectWithData(dat!, options: NSJSONReadingOptions.MutableContainers) as! Dictionary<String,Dictionary<String,AnyObject>>
-                list = obj
+                let obj = try NSJSONSerialization.JSONObjectWithData(dat!, options: NSJSONReadingOptions.MutableContainers) as! Array<Dictionary<String,AnyObject>>
+                for dict in obj {
+                    list.append(interpretDictToReminder(dict))
+                }
             } catch {}
         }
+        saving = true
     }
     
-    func interpretReminder(dict:Dictionary<String,AnyObject>) -> Reminder {
+    func interpretDictToReminder(dict:Dictionary<String,AnyObject>) -> Reminder {
         let rem = Reminder()
         for (k,v) in dict {
             if rem.respondsToSelector(NSSelectorFromString(k)) {
@@ -45,26 +64,12 @@ class ReminderRepo {
         return rem
     }
     
-    func addReminderToRepo(rem:Reminder) {
-        list.removeValueForKey(rem.title)
-        var keyVal = Dictionary<String,AnyObject>()
-        keyVal.updateValue(rem.time, forKey: "time")
-        keyVal.updateValue(rem.title, forKey: "title")
-        keyVal.updateValue(rem.volume, forKey: "volume")
-        list.updateValue(keyVal, forKey: rem.title)
-        let pathName = libPath.stringByAppendingPathComponent("reminders.dat")
-        do {
-            let data = try NSJSONSerialization.dataWithJSONObject(list, options: NSJSONWritingOptions())
-            data.writeToFile(pathName, atomically: true)
-        } catch {}
+    func interpretReminderToDict(rem:Reminder) -> Dictionary<String,AnyObject> {
+        var dict = Dictionary<String,AnyObject>()
+        dict.updateValue(rem.time, forKey: "time")
+        dict.updateValue(rem.title, forKey: "title")
+        dict.updateValue(rem.volume, forKey: "volume")
+        return dict
     }
     
-    func deleteReminderFromRepo(name:String) {
-        list.removeValueForKey(name)
-        let pathName = libPath.stringByAppendingPathComponent("reminders.dat")
-        do {
-            let data = try NSJSONSerialization.dataWithJSONObject(list, options: NSJSONWritingOptions())
-            data.writeToFile(pathName, atomically: true)
-        } catch {}
-    }
 }
