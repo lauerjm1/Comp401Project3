@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB36FBAF1CD52ADE002E6319 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36FBAE1CD52ADE002E6319 /* AlarmCell.swift */; };
+		BB36FBB21CD52E67002E6319 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36FBB11CD52E67002E6319 /* ReminderCell.swift */; };
 		D84BC21D1CC9E0CD00EA6627 /* AlarmsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */; };
 		D84BC21F1CC9E0EB00EA6627 /* RemdinersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BC21E1CC9E0EB00EA6627 /* RemdinersTableViewController.swift */; };
 		D84BC2211CC9E1FB00EA6627 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BC2201CC9E1FB00EA6627 /* Alarm.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB36FBAE1CD52ADE002E6319 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
+		BB36FBB11CD52E67002E6319 /* ReminderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmsTableViewController.swift; sourceTree = "<group>"; };
 		D84BC21E1CC9E0EB00EA6627 /* RemdinersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemdinersTableViewController.swift; sourceTree = "<group>"; };
 		D84BC2201CC9E1FB00EA6627 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB36FBB01CD52B20002E6319 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB36FBAE1CD52ADE002E6319 /* AlarmCell.swift */,
+				BB36FBB11CD52E67002E6319 /* ReminderCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D84BC2241CC9E34C00EA6627 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +94,7 @@
 				D8A433031CC8572E007FA510 /* AppDelegate.swift */,
 				D84BC2241CC9E34C00EA6627 /* Model */,
 				D84BC2251CC9E3B200EA6627 /* View Controllers */,
+				BB36FBB01CD52B20002E6319 /* Views */,
 				D8A433071CC8572E007FA510 /* Main.storyboard */,
 				D8A4330A1CC8572E007FA510 /* Assets.xcassets */,
 				D8A4330C1CC8572E007FA510 /* LaunchScreen.storyboard */,
@@ -163,8 +177,10 @@
 				D84BC21F1CC9E0EB00EA6627 /* RemdinersTableViewController.swift in Sources */,
 				D8A433041CC8572E007FA510 /* AppDelegate.swift in Sources */,
 				D84BC21D1CC9E0CD00EA6627 /* AlarmsTableViewController.swift in Sources */,
+				BB36FBB21CD52E67002E6319 /* ReminderCell.swift in Sources */,
 				D84BC2211CC9E1FB00EA6627 /* Alarm.swift in Sources */,
 				D84BC2231CC9E34100EA6627 /* Reminder.swift in Sources */,
+				BB36FBAF1CD52ADE002E6319 /* AlarmCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
