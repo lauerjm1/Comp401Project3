@@ -10,14 +10,8 @@ import UIKit
 
 class AlarmsTableViewController: UITableViewController {
     
-    var alarms = Array<Alarm>()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for (_,dict) in AlarmRepo.singleton.list {
-            alarms.append(AlarmRepo.singleton.interpretAlarm(dict))
-        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,13 +32,13 @@ class AlarmsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-        //return alarms.count
+        return AlarmRepo.singleton.list.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as! AlarmCell
+        
+        
         return cell
     }
 

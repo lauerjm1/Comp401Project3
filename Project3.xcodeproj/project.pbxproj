@@ -43,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB36FBB01CD52B20002E6319 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB36FBAE1CD52ADE002E6319 /* AlarmCell.swift */,
+				BB36FBB11CD52E67002E6319 /* ReminderCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D84BC2241CC9E34C00EA6627 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +64,7 @@
 		D84BC2251CC9E3B200EA6627 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BB36FBB31CD53A39002E6319 /* AlarmVC.swift */,
 				D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */,
 				D84BC21E1CC9E0EB00EA6627 /* RemdinersTableViewController.swift */,
 				D842292F1CD52A500055B7EA /* TimerStopWatchViewController.swift */,
@@ -84,6 +94,7 @@
 				D8A433031CC8572E007FA510 /* AppDelegate.swift */,
 				D84BC2241CC9E34C00EA6627 /* Model */,
 				D84BC2251CC9E3B200EA6627 /* View Controllers */,
+				BB36FBB01CD52B20002E6319 /* Views */,
 				D8A433071CC8572E007FA510 /* Main.storyboard */,
 				D8A4330A1CC8572E007FA510 /* Assets.xcassets */,
 				D8A4330C1CC8572E007FA510 /* LaunchScreen.storyboard */,
@@ -167,8 +178,11 @@
 				D84BC21F1CC9E0EB00EA6627 /* RemdinersTableViewController.swift in Sources */,
 				D8A433041CC8572E007FA510 /* AppDelegate.swift in Sources */,
 				D84BC21D1CC9E0CD00EA6627 /* AlarmsTableViewController.swift in Sources */,
+				BB36FBB21CD52E67002E6319 /* ReminderCell.swift in Sources */,
 				D84BC2211CC9E1FB00EA6627 /* Alarm.swift in Sources */,
 				D84BC2231CC9E34100EA6627 /* Reminder.swift in Sources */,
+				BB36FBB41CD53A39002E6319 /* AlarmVC.swift in Sources */,
+				BB36FBAF1CD52ADE002E6319 /* AlarmCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
