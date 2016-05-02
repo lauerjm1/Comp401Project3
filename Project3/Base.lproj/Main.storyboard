@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -180,7 +178,7 @@
         <!--Timer/Stopwatch-->
         <scene sceneID="tcG-be-AIM">
             <objects>
-                <viewController id="Q7C-tN-XUX" sceneMemberID="viewController">
+                <viewController id="Q7C-tN-XUX" customClass="TimerStopWatchViewController" customModule="Project3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dYO-eS-XkE"/>
                         <viewControllerLayoutGuide type="bottom" id="1mc-Vq-kT1"/>
@@ -196,66 +194,87 @@
                                     <segment title="Stopwatch"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5f-vg-GYh">
-                                <rect key="frame" x="288" y="288" width="25" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="99" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cjk-af-e3z" userLabel="Hours Textfield">
+                                <rect key="frame" x="241" y="286" width="36" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Q7C-tN-XUX" id="0DH-9M-ZwC"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNU-lR-oFH" userLabel="Hours/Minutes Divider Label">
+                                <rect key="frame" x="277" y="290" width="5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW8-NT-ovq">
-                                <rect key="frame" x="321" y="288" width="7" height="24"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="99" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPa-Xq-LNq" userLabel="Minutes Textfield">
+                                <rect key="frame" x="282" y="285" width="36" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Q7C-tN-XUX" id="yiQ-ls-U8K"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiD-r3-PnL" userLabel="Minutes/Seconds Divider Label">
+                                <rect key="frame" x="318" y="290" width="5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="99" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WFv-4g-RY1" userLabel="Seconds Textfield">
+                                <rect key="frame" x="323" y="286" width="36" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="7" id="8jX-th-ZFr"/>
+                                    <constraint firstAttribute="width" constant="36" id="EZO-Xc-561"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPC-ls-Ju2">
-                                <rect key="frame" x="273" y="289" width="7" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="7" id="Lci-EF-NMo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWb-PJ-CVc">
-                                <rect key="frame" x="336" y="288" width="25" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lpd-8v-jPk">
-                                <rect key="frame" x="240" y="288" width="25" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZg-e3-F4M">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Q7C-tN-XUX" id="Ime-hT-ZzN"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehh-Zi-aJj">
+                                <rect key="frame" x="283" y="378" width="34" height="30"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZg-e3-F4M" userLabel="Reset Button">
                                 <rect key="frame" x="281" y="416" width="39" height="30"/>
                                 <state key="normal" title="Reset"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tiD-r3-PnL" firstAttribute="leading" secondItem="mPa-Xq-LNq" secondAttribute="trailing" id="5o0-Sy-3YV"/>
                             <constraint firstItem="8Ep-N4-QHl" firstAttribute="centerX" secondItem="CyP-CG-8hs" secondAttribute="centerX" id="67S-oa-Yoa"/>
-                            <constraint firstItem="M5f-vg-GYh" firstAttribute="baseline" secondItem="SW8-NT-ovq" secondAttribute="baseline" id="CUu-Ld-BwU"/>
-                            <constraint firstItem="aZg-e3-F4M" firstAttribute="centerX" secondItem="M5f-vg-GYh" secondAttribute="centerX" id="F2N-f5-B1C"/>
-                            <constraint firstItem="DPC-ls-Ju2" firstAttribute="leading" secondItem="Lpd-8v-jPk" secondAttribute="trailing" constant="8" symbolic="YES" id="FmZ-PC-5Mn"/>
-                            <constraint firstItem="SW8-NT-ovq" firstAttribute="baseline" secondItem="GWb-PJ-CVc" secondAttribute="baseline" id="GmL-93-28Z"/>
-                            <constraint firstItem="Lpd-8v-jPk" firstAttribute="baseline" secondItem="DPC-ls-Ju2" secondAttribute="firstBaseline" constant="-1" id="cXs-hu-7gS"/>
-                            <constraint firstItem="Lpd-8v-jPk" firstAttribute="centerY" secondItem="CyP-CG-8hs" secondAttribute="centerY" id="d7C-s6-A6b"/>
-                            <constraint firstItem="SW8-NT-ovq" firstAttribute="leading" secondItem="M5f-vg-GYh" secondAttribute="trailing" constant="8" symbolic="YES" id="f6x-FL-va9"/>
-                            <constraint firstItem="M5f-vg-GYh" firstAttribute="centerX" secondItem="8Ep-N4-QHl" secondAttribute="centerX" id="fui-jp-hji"/>
-                            <constraint firstItem="M5f-vg-GYh" firstAttribute="leading" secondItem="DPC-ls-Ju2" secondAttribute="trailing" constant="8" symbolic="YES" id="i2t-bK-6vG"/>
+                            <constraint firstItem="Cjk-af-e3z" firstAttribute="centerY" secondItem="VNU-lR-oFH" secondAttribute="centerY" id="6JZ-dC-8RJ"/>
+                            <constraint firstItem="tiD-r3-PnL" firstAttribute="centerY" secondItem="VNU-lR-oFH" secondAttribute="centerY" id="BWX-oV-gqU"/>
+                            <constraint firstItem="VNU-lR-oFH" firstAttribute="leading" secondItem="Cjk-af-e3z" secondAttribute="trailing" id="G8v-pW-mKR"/>
+                            <constraint firstItem="WFv-4g-RY1" firstAttribute="width" secondItem="Cjk-af-e3z" secondAttribute="width" id="ID7-wB-8Fx"/>
+                            <constraint firstItem="mPa-Xq-LNq" firstAttribute="centerX" secondItem="CyP-CG-8hs" secondAttribute="centerX" id="Iw1-Qd-m7M"/>
+                            <constraint firstItem="mPa-Xq-LNq" firstAttribute="leading" secondItem="VNU-lR-oFH" secondAttribute="trailing" id="Jae-eN-aF0"/>
+                            <constraint firstItem="mPa-Xq-LNq" firstAttribute="centerY" secondItem="VNU-lR-oFH" secondAttribute="centerY" id="PC2-cA-hzt"/>
+                            <constraint firstItem="VNU-lR-oFH" firstAttribute="leading" secondItem="Cjk-af-e3z" secondAttribute="trailing" id="UEg-QW-wKR"/>
+                            <constraint firstItem="WFv-4g-RY1" firstAttribute="leading" secondItem="tiD-r3-PnL" secondAttribute="trailing" id="Wcq-45-AVi"/>
+                            <constraint firstItem="aZg-e3-F4M" firstAttribute="top" secondItem="ehh-Zi-aJj" secondAttribute="bottom" constant="8" symbolic="YES" id="ZjH-5I-2jG"/>
+                            <constraint firstItem="WFv-4g-RY1" firstAttribute="centerY" secondItem="VNU-lR-oFH" secondAttribute="centerY" id="alQ-e7-5lv"/>
+                            <constraint firstItem="mPa-Xq-LNq" firstAttribute="centerY" secondItem="CyP-CG-8hs" secondAttribute="centerY" id="bzB-w0-wPB"/>
+                            <constraint firstItem="aZg-e3-F4M" firstAttribute="centerX" secondItem="CyP-CG-8hs" secondAttribute="centerX" id="c9r-sU-8lI"/>
+                            <constraint firstItem="mPa-Xq-LNq" firstAttribute="width" secondItem="Cjk-af-e3z" secondAttribute="width" id="g7e-do-6PU"/>
+                            <constraint firstItem="ehh-Zi-aJj" firstAttribute="centerX" secondItem="CyP-CG-8hs" secondAttribute="centerX" id="hib-Zq-7t6"/>
                             <constraint firstItem="8Ep-N4-QHl" firstAttribute="top" secondItem="dYO-eS-XkE" secondAttribute="bottom" constant="8" symbolic="YES" id="ikE-Ub-dbT"/>
-                            <constraint firstItem="GWb-PJ-CVc" firstAttribute="leading" secondItem="SW8-NT-ovq" secondAttribute="trailing" constant="8" symbolic="YES" id="jV9-fr-kAY"/>
-                            <constraint firstItem="Lpd-8v-jPk" firstAttribute="baseline" secondItem="M5f-vg-GYh" secondAttribute="baseline" id="vVy-px-go8"/>
                             <constraint firstItem="1mc-Vq-kT1" firstAttribute="top" secondItem="aZg-e3-F4M" secondAttribute="bottom" constant="105" id="wYF-Sf-jv4"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Timer/Stopwatch" image="Timer&amp;Stopwatch Icon" selectedImage="Timer&amp;Stopwatch Selected Icon" id="fm6-Ch-zLz"/>
+                    <connections>
+                        <outlet property="hoursTextField" destination="Cjk-af-e3z" id="s6I-Ft-moF"/>
+                        <outlet property="minutesTextField" destination="mPa-Xq-LNq" id="OEb-oq-MZH"/>
+                        <outlet property="resetButton" destination="aZg-e3-F4M" id="Z2T-k3-Jog"/>
+                        <outlet property="secondsTextField" destination="WFv-4g-RY1" id="HmA-ky-Aew"/>
+                        <outlet property="startAndStopButton" destination="ehh-Zi-aJj" id="DDw-w3-tXL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioe-fN-LwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
