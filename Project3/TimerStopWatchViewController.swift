@@ -83,7 +83,7 @@ extension TimerStopWatchViewController: UITextFieldDelegate {
             newValue = 0
         } else if let number = Int(textField.text!) {
             newValue = number
-            if number > 10 {
+            if number < 10 {
                 textField.text = "0\(number)"
             }
         } else {
