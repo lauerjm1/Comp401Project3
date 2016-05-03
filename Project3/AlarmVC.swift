@@ -78,6 +78,13 @@ class AlarmVC: UIViewController {
         }
     }
     
+    @IBAction func screenTap(sender:UIControl) {
+        titleField.resignFirstResponder()
+    }
+    @IBAction func titleTap(sender:UITextField) {
+        titleField.becomeFirstResponder()
+    }
+    
     var creating:Bool = true
     var alarm = Alarm()
     var days = [Bool]()
@@ -130,6 +137,7 @@ class AlarmVC: UIViewController {
         let components = NSCalendar.currentCalendar().components(unitFlags, fromDate: timePicker.date)
         alm.hour = components.hour
         alm.minute = components.minute
+        //NSLog("\(components.hour)")
         alm.daysOfWeek[0] = days[0]
         alm.daysOfWeek[1] = days[1]
         alm.daysOfWeek[2] = days[2]

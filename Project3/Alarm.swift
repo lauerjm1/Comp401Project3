@@ -9,10 +9,10 @@
 import UIKit
 
 class Alarm: NSObject {
-    var hour: Int!
-    var minute: Int!
+    var hour: Int = 0
+    var minute: Int = 0
     var daysOfWeek = [false,false,false,false,false,false,false]
-    var activated: Bool!
+    var activated: Bool = false
     var title: String!
     // TODO: - Figure out if this is Double or some other type
     var volume: Int = 0
@@ -42,6 +42,7 @@ class AlarmRepo {
     
     private init() {
         let pathName = libPath.stringByAppendingPathComponent("alarms.dat")
+        //NSLog(pathName)
         if NSFileManager.defaultManager().fileExistsAtPath(pathName) {
             let dat = NSData(contentsOfFile: pathName)
             do {
@@ -57,8 +58,10 @@ class AlarmRepo {
     func interpretDictToAlarm(dict:Dictionary<String,AnyObject>) -> Alarm {
         let alm = Alarm()
         for(k,v) in dict {
+            //NSLog("Seeing \(v) as \(k)")
             if alm.respondsToSelector(NSSelectorFromString(k)) {
                 alm.setValue(v, forKey: k)
+                //NSLog("Reading \(v) into \(k)")
             }
         }
         return alm

@@ -44,13 +44,16 @@ class AlarmsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         currentRow = indexPath.row
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegueWithIdentifier("editAlarm", sender: tableView.cellForRowAtIndexPath(indexPath))
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as! AlarmCell
         if indexPath.row < AlarmRepo.singleton.list.count {
             let alm = AlarmRepo.singleton.list[indexPath.row]
+            cell.hourLabel.text = String(alm.hour)
+            cell.minuteLabel.text = String(alm.minute)
             if alm.daysOfWeek[0] == true {
                 cell.sunLabel.textColor = UIColor.blackColor()
             } else {
@@ -105,6 +108,7 @@ class AlarmsTableViewController: UITableViewController {
         if segue.identifier == "newAlarm" {
             dest.creating = true
         } else if segue.identifier == "editAlarm" {
+            //NSLog("EDITING ALARM \(currentRow)")
             dest.creating = false
             let alm = AlarmRepo.singleton.list[currentRow]
             dest.alarm = alm
