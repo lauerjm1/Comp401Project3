@@ -142,7 +142,7 @@
                                     <outlet property="timeLabel" destination="NRL-OF-VHH" id="Vhp-Ko-Myw"/>
                                     <outlet property="tueLabel" destination="b3R-WZ-UdH" id="kJK-XL-30t"/>
                                     <outlet property="wedLabel" destination="oUg-r8-7Bd" id="5xf-yc-7ND"/>
-                                    <segue destination="pdz-q2-aZ2" kind="show" identifier="editAlarm" trigger="accessoryAction" id="seu-eS-NUj"/>
+                                    <segue destination="pdz-q2-aZ2" kind="show" identifier="editAlarm" id="qxJ-N2-WVM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -198,6 +198,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="W"/>
+                                <connections>
+                                    <action selector="wedTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="zKd-GN-T59"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42U-Pn-kcq">
                                 <rect key="frame" x="328" y="416" width="40" height="40"/>
@@ -207,6 +210,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="T"/>
+                                <connections>
+                                    <action selector="thuTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="bva-wh-rDK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoP-IN-H4T">
                                 <rect key="frame" x="376" y="416" width="40" height="40"/>
@@ -216,6 +222,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="F"/>
+                                <connections>
+                                    <action selector="friTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="N3Z-rs-gtc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-fA-Shh">
                                 <rect key="frame" x="232" y="416" width="40" height="40"/>
@@ -225,6 +234,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="T"/>
+                                <connections>
+                                    <action selector="tueTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="PaG-bt-mIV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXA-Pm-IWh">
                                 <rect key="frame" x="184" y="416" width="40" height="40"/>
@@ -234,6 +246,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="M"/>
+                                <connections>
+                                    <action selector="monTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="FDy-hJ-8av"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnO-5X-dEG">
                                 <rect key="frame" x="136" y="416" width="40" height="40"/>
@@ -243,6 +258,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="S"/>
+                                <connections>
+                                    <action selector="sunTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="LJb-C9-SjA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fil-DD-iJD">
                                 <rect key="frame" x="424" y="416" width="40" height="40"/>
@@ -252,6 +270,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="S"/>
+                                <connections>
+                                    <action selector="satTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="WWi-KW-UhP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY2-5H-wOt">
                                 <rect key="frame" x="225" y="466" width="150" height="40"/>
@@ -301,23 +322,28 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Create/Edit Alarm" id="fif-oM-F7n">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="eoi-KK-mGo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="eoi-KK-mGo">
+                            <connections>
+                                <segue destination="BD4-qg-TiX" kind="unwind" unwindAction="saveAlarmToTable:" id="JTd-Ei-x0A"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activeSwitch" destination="DtE-fE-5Mx" id="X6m-1v-Uca"/>
-                        <outlet property="friBut" destination="GoP-IN-H4T" id="7cd-Nj-IoP"/>
-                        <outlet property="monBut" destination="KXA-Pm-IWh" id="YDv-IE-aMH"/>
-                        <outlet property="satBut" destination="fil-DD-iJD" id="nAZ-Et-LXB"/>
-                        <outlet property="sunBut" destination="vnO-5X-dEG" id="ywH-tH-nKs"/>
-                        <outlet property="thuBut" destination="42U-Pn-kcq" id="sTJ-JW-dOi"/>
+                        <outlet property="friBut" destination="GoP-IN-H4T" id="ErG-Jq-rCn"/>
+                        <outlet property="monBut" destination="KXA-Pm-IWh" id="Uq8-WO-fop"/>
+                        <outlet property="satBut" destination="fil-DD-iJD" id="ofE-fS-A5W"/>
+                        <outlet property="sunBut" destination="vnO-5X-dEG" id="y0i-Id-FNp"/>
+                        <outlet property="thuBut" destination="42U-Pn-kcq" id="VGB-h5-BcV"/>
                         <outlet property="timePicker" destination="HPW-wC-xGV" id="x4j-7I-bfi"/>
                         <outlet property="titleField" destination="zrr-wJ-rqI" id="R30-jX-7Wb"/>
-                        <outlet property="tueBut" destination="Wbm-fA-Shh" id="HhO-IX-lsa"/>
-                        <outlet property="wedBut" destination="7vS-lj-3fc" id="jq9-D8-rCP"/>
+                        <outlet property="tueBut" destination="Wbm-fA-Shh" id="prZ-aj-SE8"/>
+                        <outlet property="wedBut" destination="7vS-lj-3fc" id="bNZ-ZU-LcS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsH-x7-lmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BD4-qg-TiX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2216" y="-238"/>
         </scene>
@@ -354,7 +380,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="Y8q-Lp-xbC" id="5In-dL-5Po"/>
                                     <outlet property="titleLabel" destination="P9g-kS-W3t" id="QDi-OZ-uO7"/>
-                                    <segue destination="pE7-4h-Sbm" kind="show" id="wtz-by-Thv"/>
+                                    <segue destination="pE7-4h-Sbm" kind="show" identifier="editReminder" id="wtz-by-Thv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -366,7 +392,7 @@
                     <navigationItem key="navigationItem" title="Reminders" id="U6d-ZQ-T7c">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pj2-9C-cVy">
                             <connections>
-                                <segue destination="pE7-4h-Sbm" kind="show" id="Id7-lH-bTH"/>
+                                <segue destination="pE7-4h-Sbm" kind="show" identifier="newReminder" id="Id7-lH-bTH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -619,7 +645,7 @@
         <image name="Timer&amp;Stopwatch Selected Icon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wtz-by-Thv"/>
-        <segue reference="seu-eS-NUj"/>
+        <segue reference="Id7-lH-bTH"/>
+        <segue reference="qxJ-N2-WVM"/>
     </inferredMetricsTieBreakers>
 </document>

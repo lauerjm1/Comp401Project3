@@ -9,14 +9,13 @@
 import UIKit
 
 class Alarm: NSObject {
-
-    var time: Int!
-    var daysOfWeek: [String]!
+    var hour: Int!
+    var minute: Int!
+    var daysOfWeek = [false,false,false,false,false,false,false]
     var activated: Bool!
     var title: String!
     // TODO: - Figure out if this is Double or some other type
-    var volume: Int!
-
+    var volume: Int = 0
 }
 
 class AlarmRepo {
@@ -67,7 +66,8 @@ class AlarmRepo {
     
     func interpretAlarmToDict(alm:Alarm) -> Dictionary<String,AnyObject> {
         var dict = Dictionary<String,AnyObject>()
-        dict.updateValue(alm.time, forKey: "time")
+        dict.updateValue(alm.hour, forKey: "hour")
+        dict.updateValue(alm.minute, forKey: "minute")
         dict.updateValue(alm.daysOfWeek, forKey: "daysOfWeek")
         dict.updateValue(alm.activated, forKey: "activated")
         dict.updateValue(alm.title, forKey: "title")

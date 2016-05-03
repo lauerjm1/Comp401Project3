@@ -72,8 +72,8 @@
 		D84BC2251CC9E3B200EA6627 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BB762B0B1CD81D5F0099DC43 /* ReminderVC.swift */,
 				BB36FBB31CD53A39002E6319 /* AlarmVC.swift */,
+				BB762B0B1CD81D5F0099DC43 /* ReminderVC.swift */,
 				D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */,
 				D84BC21E1CC9E0EB00EA6627 /* RemdinersTableViewController.swift */,
 				D84229311CD816AA0055B7EA /* TimerStopWatchViewController.swift */,
