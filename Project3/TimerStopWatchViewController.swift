@@ -69,6 +69,11 @@ class TimerStopWatchViewController: UIViewController {
                 if !timerStarted {
                     timerTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(TimerStopWatchViewController.updateTimer), userInfo: nil, repeats: true)
                     toggleTextFieldsEnabled(false)
+                    let note = UILocalNotification()
+                    note.fireDate = NSDate(timeIntervalSinceNow: Double(totalTimeLeft))
+                    note.alertAction = "Timer ended"
+                    note.alertBody = "\(totalTimeLeft) seconds elapsed"
+                    UIApplication.sharedApplication().scheduleLocalNotification(note)
                     timerStarted = true
                 }
             }

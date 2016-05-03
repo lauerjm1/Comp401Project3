@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert, categories: nil))
         return true
     }
 
@@ -39,6 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        let alert = UIAlertController(title: notification.alertAction, message: notification.alertBody, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
+        self.window?.rootViewController!.presentViewController(alert, animated: true, completion: nil)
     }
 
 
