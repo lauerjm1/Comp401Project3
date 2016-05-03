@@ -142,7 +142,7 @@
                                     <outlet property="timeLabel" destination="NRL-OF-VHH" id="Vhp-Ko-Myw"/>
                                     <outlet property="tueLabel" destination="b3R-WZ-UdH" id="kJK-XL-30t"/>
                                     <outlet property="wedLabel" destination="oUg-r8-7Bd" id="5xf-yc-7ND"/>
-                                    <segue destination="pdz-q2-aZ2" kind="show" identifier="editAlarm" trigger="accessoryAction" id="seu-eS-NUj"/>
+                                    <segue destination="pdz-q2-aZ2" kind="show" identifier="editAlarm" id="qxJ-N2-WVM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -175,83 +175,175 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HPW-wC-xGV">
-                                <rect key="frame" x="20" y="127" width="560" height="200"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HPW-wC-xGV">
+                                <rect key="frame" x="140" y="192" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="483736441.01086402">
                                     <!--2016-04-30 19:14:01 +0000-->
                                 </date>
                             </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alarm Title" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zrr-wJ-rqI">
-                                <rect key="frame" x="150" y="89" width="300" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alarm Title" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zrr-wJ-rqI">
+                                <rect key="frame" x="150" y="112" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MCa-A3-4FK"/>
+                                    <constraint firstAttribute="width" constant="300" id="zvQ-HT-4FF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vS-lj-3fc">
-                                <rect key="frame" x="280" y="335" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vS-lj-3fc">
+                                <rect key="frame" x="280" y="416" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="7v2-QG-mcE"/>
+                                    <constraint firstAttribute="height" constant="40" id="zYT-a6-47j"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="W"/>
+                                <connections>
+                                    <action selector="wedTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="zKd-GN-T59"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42U-Pn-kcq">
-                                <rect key="frame" x="328" y="335" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42U-Pn-kcq">
+                                <rect key="frame" x="328" y="416" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1ol-n0-h69"/>
+                                    <constraint firstAttribute="width" constant="40" id="6iZ-Ij-U8m"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="T"/>
+                                <connections>
+                                    <action selector="thuTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="bva-wh-rDK"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoP-IN-H4T">
-                                <rect key="frame" x="376" y="335" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoP-IN-H4T">
+                                <rect key="frame" x="376" y="416" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1QP-bD-jIR"/>
+                                    <constraint firstAttribute="width" constant="40" id="WrL-cu-N6D"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="F"/>
+                                <connections>
+                                    <action selector="friTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="N3Z-rs-gtc"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-fA-Shh">
-                                <rect key="frame" x="232" y="335" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-fA-Shh">
+                                <rect key="frame" x="232" y="416" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="TLw-uR-gGQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="jqG-bF-gD0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="T"/>
+                                <connections>
+                                    <action selector="tueTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="PaG-bt-mIV"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXA-Pm-IWh">
-                                <rect key="frame" x="184" y="335" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXA-Pm-IWh">
+                                <rect key="frame" x="184" y="416" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="EyX-mP-IAQ"/>
+                                    <constraint firstAttribute="width" constant="40" id="IGe-O3-7W8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="M"/>
+                                <connections>
+                                    <action selector="monTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="FDy-hJ-8av"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnO-5X-dEG">
-                                <rect key="frame" x="136" y="335" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnO-5X-dEG">
+                                <rect key="frame" x="136" y="416" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="jOf-4h-AQR"/>
+                                    <constraint firstAttribute="height" constant="40" id="re6-7N-WOa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="S"/>
+                                <connections>
+                                    <action selector="sunTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="LJb-C9-SjA"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fil-DD-iJD">
-                                <rect key="frame" x="424" y="335" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fil-DD-iJD">
+                                <rect key="frame" x="424" y="416" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="k6F-8i-Pof"/>
+                                    <constraint firstAttribute="width" constant="40" id="m3w-Au-n7a"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="S"/>
+                                <connections>
+                                    <action selector="satTap:" destination="pdz-q2-aZ2" eventType="touchUpInside" id="WWi-KW-UhP"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY2-5H-wOt">
-                                <rect key="frame" x="232" y="428" width="136" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY2-5H-wOt">
+                                <rect key="frame" x="225" y="466" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2dN-HB-Spf"/>
+                                    <constraint firstAttribute="width" constant="150" id="Zp3-I3-YAS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DtE-fE-5Mx">
-                                <rect key="frame" x="276" y="461" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DtE-fE-5Mx">
+                                <rect key="frame" x="276" y="514" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GoP-IN-H4T" firstAttribute="leading" secondItem="42U-Pn-kcq" secondAttribute="trailing" constant="8" id="1IK-1s-ZGf"/>
+                            <constraint firstItem="DtE-fE-5Mx" firstAttribute="top" secondItem="iY2-5H-wOt" secondAttribute="bottom" constant="8" id="4id-sf-gwI"/>
+                            <constraint firstItem="HPW-wC-xGV" firstAttribute="centerX" secondItem="omq-a3-hOF" secondAttribute="centerX" id="61k-TO-nP9"/>
+                            <constraint firstItem="HPW-wC-xGV" firstAttribute="top" secondItem="zrr-wJ-rqI" secondAttribute="bottom" constant="50" id="66F-sT-tnd"/>
+                            <constraint firstItem="7vS-lj-3fc" firstAttribute="top" secondItem="HPW-wC-xGV" secondAttribute="bottom" constant="8" id="A7E-Te-NoS"/>
+                            <constraint firstItem="42U-Pn-kcq" firstAttribute="leading" secondItem="7vS-lj-3fc" secondAttribute="trailing" constant="8" id="F8g-js-qLS"/>
+                            <constraint firstItem="7vS-lj-3fc" firstAttribute="centerX" secondItem="omq-a3-hOF" secondAttribute="centerX" id="KDa-Ql-srS"/>
+                            <constraint firstItem="GoP-IN-H4T" firstAttribute="leading" secondItem="42U-Pn-kcq" secondAttribute="trailing" constant="8" id="L10-wo-4Rv"/>
+                            <constraint firstItem="42U-Pn-kcq" firstAttribute="leading" secondItem="7vS-lj-3fc" secondAttribute="trailing" constant="8" id="PS3-5j-xq4"/>
+                            <constraint firstItem="fil-DD-iJD" firstAttribute="leading" secondItem="GoP-IN-H4T" secondAttribute="trailing" constant="8" id="QGf-XL-Q4u"/>
+                            <constraint firstItem="Wbm-fA-Shh" firstAttribute="leading" secondItem="KXA-Pm-IWh" secondAttribute="trailing" constant="8" id="RbJ-sx-g7q"/>
+                            <constraint firstItem="KXA-Pm-IWh" firstAttribute="leading" secondItem="vnO-5X-dEG" secondAttribute="trailing" constant="8" id="U2i-aM-5rv"/>
+                            <constraint firstItem="iY2-5H-wOt" firstAttribute="centerX" secondItem="omq-a3-hOF" secondAttribute="centerX" id="U67-bA-wJ3"/>
+                            <constraint firstItem="42U-Pn-kcq" firstAttribute="top" secondItem="HPW-wC-xGV" secondAttribute="bottom" constant="8" id="UgL-qs-f6k"/>
+                            <constraint firstItem="HPW-wC-xGV" firstAttribute="centerY" secondItem="omq-a3-hOF" secondAttribute="centerY" id="WAD-ct-49Z"/>
+                            <constraint firstItem="Wbm-fA-Shh" firstAttribute="top" secondItem="HPW-wC-xGV" secondAttribute="bottom" constant="8" id="WvS-OJ-uEo"/>
+                            <constraint firstItem="GoP-IN-H4T" firstAttribute="top" secondItem="HPW-wC-xGV" secondAttribute="bottom" constant="8" id="Xgk-pT-1Hz"/>
+                            <constraint firstItem="iY2-5H-wOt" firstAttribute="top" secondItem="Wbm-fA-Shh" secondAttribute="bottom" constant="10" id="agf-t5-Rqi"/>
+                            <constraint firstItem="vnO-5X-dEG" firstAttribute="top" secondItem="HPW-wC-xGV" secondAttribute="bottom" constant="8" id="amo-lF-bKx"/>
+                            <constraint firstItem="KXA-Pm-IWh" firstAttribute="leading" secondItem="vnO-5X-dEG" secondAttribute="trailing" constant="8" id="d2u-RP-6Qn"/>
+                            <constraint firstItem="7vS-lj-3fc" firstAttribute="leading" secondItem="Wbm-fA-Shh" secondAttribute="trailing" constant="8" id="e0o-Iv-SdO"/>
+                            <constraint firstItem="fil-DD-iJD" firstAttribute="leading" secondItem="GoP-IN-H4T" secondAttribute="trailing" constant="8" id="eKx-Zq-vvG"/>
+                            <constraint firstItem="zrr-wJ-rqI" firstAttribute="centerX" secondItem="omq-a3-hOF" secondAttribute="centerX" id="hTD-m8-fka"/>
+                            <constraint firstItem="fil-DD-iJD" firstAttribute="top" secondItem="HPW-wC-xGV" secondAttribute="bottom" constant="8" id="hey-vz-Xfm"/>
+                            <constraint firstItem="DtE-fE-5Mx" firstAttribute="centerX" secondItem="omq-a3-hOF" secondAttribute="centerX" id="sHe-oH-W5y"/>
+                            <constraint firstItem="7vS-lj-3fc" firstAttribute="leading" secondItem="Wbm-fA-Shh" secondAttribute="trailing" constant="8" id="vle-2i-VWC"/>
+                            <constraint firstItem="KXA-Pm-IWh" firstAttribute="top" secondItem="HPW-wC-xGV" secondAttribute="bottom" constant="8" id="xLg-i8-nVn"/>
+                            <constraint firstItem="Wbm-fA-Shh" firstAttribute="leading" secondItem="KXA-Pm-IWh" secondAttribute="trailing" constant="8" id="ylN-WN-1VL"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Create/Edit Alarm" id="fif-oM-F7n">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="eoi-KK-mGo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="eoi-KK-mGo">
+                            <connections>
+                                <segue destination="BD4-qg-TiX" kind="unwind" unwindAction="saveAlarmToTable:" id="JTd-Ei-x0A"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activeSwitch" destination="DtE-fE-5Mx" id="X6m-1v-Uca"/>
-                        <outlet property="friBut" destination="GoP-IN-H4T" id="7cd-Nj-IoP"/>
-                        <outlet property="monBut" destination="KXA-Pm-IWh" id="YDv-IE-aMH"/>
-                        <outlet property="satBut" destination="fil-DD-iJD" id="nAZ-Et-LXB"/>
-                        <outlet property="sunBut" destination="vnO-5X-dEG" id="ywH-tH-nKs"/>
-                        <outlet property="thuBut" destination="42U-Pn-kcq" id="sTJ-JW-dOi"/>
+                        <outlet property="friBut" destination="GoP-IN-H4T" id="ErG-Jq-rCn"/>
+                        <outlet property="monBut" destination="KXA-Pm-IWh" id="Uq8-WO-fop"/>
+                        <outlet property="satBut" destination="fil-DD-iJD" id="ofE-fS-A5W"/>
+                        <outlet property="sunBut" destination="vnO-5X-dEG" id="y0i-Id-FNp"/>
+                        <outlet property="thuBut" destination="42U-Pn-kcq" id="VGB-h5-BcV"/>
                         <outlet property="timePicker" destination="HPW-wC-xGV" id="x4j-7I-bfi"/>
                         <outlet property="titleField" destination="zrr-wJ-rqI" id="R30-jX-7Wb"/>
-                        <outlet property="tueBut" destination="Wbm-fA-Shh" id="HhO-IX-lsa"/>
-                        <outlet property="wedBut" destination="7vS-lj-3fc" id="jq9-D8-rCP"/>
+                        <outlet property="tueBut" destination="Wbm-fA-Shh" id="prZ-aj-SE8"/>
+                        <outlet property="wedBut" destination="7vS-lj-3fc" id="bNZ-ZU-LcS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsH-x7-lmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BD4-qg-TiX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2216" y="-238"/>
         </scene>
@@ -288,6 +380,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="Y8q-Lp-xbC" id="5In-dL-5Po"/>
                                     <outlet property="titleLabel" destination="P9g-kS-W3t" id="QDi-OZ-uO7"/>
+                                    <segue destination="pE7-4h-Sbm" kind="show" identifier="editReminder" id="wtz-by-Thv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -297,12 +390,92 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Reminders" id="U6d-ZQ-T7c">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pj2-9C-cVy"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pj2-9C-cVy">
+                            <connections>
+                                <segue destination="pE7-4h-Sbm" kind="show" identifier="newReminder" id="Id7-lH-bTH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtF-Y3-cwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1454" y="794"/>
+        </scene>
+        <!--Create/Edit Reminder-->
+        <scene sceneID="Ttr-O1-QEd">
+            <objects>
+                <viewController id="pE7-4h-Sbm" customClass="ReminderVC" customModule="Project3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zNc-he-56U"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fsn-6X-bTo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kYh-vp-liT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uys-np-9zY">
+                                <rect key="frame" x="140" y="192" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="483924898.11005801">
+                                    <!--2016-05-02 23:34:58 +0000-->
+                                </date>
+                            </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xl5-70-LuQ">
+                                <rect key="frame" x="276" y="506" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86f-MU-gL3">
+                                <rect key="frame" x="225" y="458" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="32b-Nc-Lgi"/>
+                                    <constraint firstAttribute="height" constant="40" id="bkc-nK-CWM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Reminder Title" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IGL-VE-K2V">
+                                <rect key="frame" x="150" y="112" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="55l-v4-WGx"/>
+                                    <constraint firstAttribute="height" constant="30" id="R1a-Nz-FVe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uys-np-9zY" firstAttribute="leading" secondItem="kYh-vp-liT" secondAttribute="leadingMargin" id="2UO-Ol-zkN"/>
+                            <constraint firstItem="86f-MU-gL3" firstAttribute="top" secondItem="uys-np-9zY" secondAttribute="bottom" constant="8" id="5FC-BJ-YjU"/>
+                            <constraint firstItem="uys-np-9zY" firstAttribute="trailing" secondItem="kYh-vp-liT" secondAttribute="trailingMargin" id="8FD-nj-luU"/>
+                            <constraint firstItem="uys-np-9zY" firstAttribute="centerY" secondItem="kYh-vp-liT" secondAttribute="centerY" id="XM5-QY-RtB"/>
+                            <constraint firstItem="Xl5-70-LuQ" firstAttribute="top" secondItem="86f-MU-gL3" secondAttribute="bottom" constant="8" id="Zuz-ni-Sp7"/>
+                            <constraint firstItem="86f-MU-gL3" firstAttribute="centerX" secondItem="kYh-vp-liT" secondAttribute="centerX" id="csy-1n-be0"/>
+                            <constraint firstItem="86f-MU-gL3" firstAttribute="top" secondItem="uys-np-9zY" secondAttribute="bottom" constant="50" id="eqa-m2-eIh"/>
+                            <constraint firstItem="IGL-VE-K2V" firstAttribute="centerX" secondItem="kYh-vp-liT" secondAttribute="centerX" id="lWJ-Gg-w1i"/>
+                            <constraint firstItem="uys-np-9zY" firstAttribute="top" secondItem="IGL-VE-K2V" secondAttribute="bottom" constant="50" id="rro-xE-Gog"/>
+                            <constraint firstItem="uys-np-9zY" firstAttribute="centerX" secondItem="kYh-vp-liT" secondAttribute="centerX" id="yDJ-32-slJ"/>
+                            <constraint firstItem="Xl5-70-LuQ" firstAttribute="centerX" secondItem="kYh-vp-liT" secondAttribute="centerX" id="yeH-Yc-mXR"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2UO-Ol-zkN"/>
+                                <exclude reference="8FD-nj-luU"/>
+                                <exclude reference="5FC-BJ-YjU"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create/Edit Reminder" id="gFH-5V-aPD">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="3Xd-qr-JLi"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activeSwitch" destination="Xl5-70-LuQ" id="BNw-0a-0fG"/>
+                        <outlet property="timePicker" destination="uys-np-9zY" id="vcy-oa-cWV"/>
+                        <outlet property="titleField" destination="IGL-VE-K2V" id="Mdj-av-Z0r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u4z-XX-V6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2216" y="794"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="BUw-e8-Awb">
@@ -484,6 +657,7 @@
         <image name="Timer&amp;Stopwatch Selected Icon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="seu-eS-NUj"/>
+        <segue reference="Id7-lH-bTH"/>
+        <segue reference="qxJ-N2-WVM"/>
     </inferredMetricsTieBreakers>
 </document>
