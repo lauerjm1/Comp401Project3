@@ -20,6 +20,7 @@ class TimerStopWatchViewController: UIViewController {
     var timerTimer = NSTimer()
     var timerStarted: Bool = false
     var timerRunning: Bool = false
+    let timerFinishedNotification = UILocalNotification()
     var stopWatchTimer = NSTimer()
     var stopWatchStarted: Bool = false
     var stopWatchRunning: Bool = false
@@ -69,11 +70,10 @@ class TimerStopWatchViewController: UIViewController {
                 if !timerStarted {
                     timerTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(TimerStopWatchViewController.updateTimer), userInfo: nil, repeats: true)
                     toggleTextFieldsEnabled(false)
-                    let note = UILocalNotification()
-                    note.fireDate = NSDate(timeIntervalSinceNow: Double(totalTimeLeft))
-                    note.alertAction = "Timer ended"
-                    note.alertBody = "\(totalTimeLeft) seconds elapsed"
-                    UIApplication.sharedApplication().scheduleLocalNotification(note)
+                    timerFinishedNotification.fireDate = NSDate(timeIntervalSinceNow: Double(totalTimeLeft))
+                    timerFinishedNotification.alertAction = "Timer ended"
+                    timerFinishedNotification.alertBody = "\(totalTimeLeft) seconds elapsed"
+                    UIApplication.sharedApplication().scheduleLocalNotification(timerFinishedNotification)
                     timerStarted = true
                 }
             }
@@ -96,6 +96,7 @@ class TimerStopWatchViewController: UIViewController {
     @IBAction func resetButtonPressed(sender: UIButton) {
         if segmentedControl.selectedSegmentIndex == 0 {
             resetTimer()
+            UIApplication.sharedApplication().cancelLocalNotification(timerFinishedNotification)
         } else {
             resetStopWatch()
         }
@@ -208,6 +209,8 @@ class TimerStopWatchViewController: UIViewController {
         hoursTextField.text = "00"
         minutesTextField.text = "00"
         secondsTextField.text = "00"
+        self.resignFirstResponder()
+        hoursTextField.becomeFirstResponder()
         super.viewDidLoad()
     }
 
