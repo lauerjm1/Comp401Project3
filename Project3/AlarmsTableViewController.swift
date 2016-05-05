@@ -10,6 +10,8 @@ import UIKit
 
 class AlarmsTableViewController: UITableViewController {
     
+    let activeColor = UIColor.blackColor()
+    let inactiveColor = UIColor.lightGrayColor()
     var currentRow:Int = 0
     
     override func viewDidLoad() {
@@ -33,6 +35,17 @@ class AlarmsTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            AlarmRepo.singleton.list.removeAtIndex(indexPath.row)
+            tableView.reloadData()
+        }
+    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -54,40 +67,49 @@ class AlarmsTableViewController: UITableViewController {
             let alm = AlarmRepo.singleton.list[indexPath.row]
             cell.hourLabel.text = String(alm.hour)
             cell.minuteLabel.text = String(alm.minute)
-            if alm.daysOfWeek[0] == true {
-                cell.sunLabel.textColor = UIColor.blackColor()
+            if alm.daysOfWeek[0] == true && alm.activated {
+                cell.sunLabel.textColor = activeColor
             } else {
-                cell.sunLabel.textColor = UIColor.lightGrayColor()
+                cell.sunLabel.textColor = inactiveColor
             }
-            if alm.daysOfWeek[1] == true {
-                cell.monLabel.textColor = UIColor.blackColor()
+            if alm.daysOfWeek[1] == true && alm.activated {
+                cell.monLabel.textColor = activeColor
             } else {
-                cell.monLabel.textColor = UIColor.lightGrayColor()
+                cell.monLabel.textColor = inactiveColor
             }
-            if alm.daysOfWeek[2] == true {
-                cell.tueLabel.textColor = UIColor.blackColor()
+            if alm.daysOfWeek[2] == true && alm.activated {
+                cell.tueLabel.textColor = activeColor
             } else {
-                cell.tueLabel.textColor = UIColor.lightGrayColor()
+                cell.tueLabel.textColor = inactiveColor
             }
-            if alm.daysOfWeek[3] == true {
-                cell.wedLabel.textColor = UIColor.blackColor()
+            if alm.daysOfWeek[3] == true && alm.activated {
+                cell.wedLabel.textColor = activeColor
             } else {
-                cell.wedLabel.textColor = UIColor.lightGrayColor()
+                cell.wedLabel.textColor = inactiveColor
             }
-            if alm.daysOfWeek[4] == true {
-                cell.thuLabel.textColor = UIColor.blackColor()
+            if alm.daysOfWeek[4] == true && alm.activated {
+                cell.thuLabel.textColor = activeColor
             } else {
-                cell.thuLabel.textColor = UIColor.lightGrayColor()
+                cell.thuLabel.textColor = inactiveColor
             }
-            if alm.daysOfWeek[5] == true {
-                cell.friLabel.textColor = UIColor.blackColor()
+            if alm.daysOfWeek[5] == true && alm.activated {
+                cell.friLabel.textColor = activeColor
             } else {
-                cell.friLabel.textColor = UIColor.lightGrayColor()
+                cell.friLabel.textColor = inactiveColor
             }
-            if alm.daysOfWeek[6] == true {
-                cell.satLabel.textColor = UIColor.blackColor()
+            if alm.daysOfWeek[6] == true && alm.activated {
+                cell.satLabel.textColor = activeColor
             } else {
-                cell.satLabel.textColor = UIColor.lightGrayColor()
+                cell.satLabel.textColor = inactiveColor
+            }
+            if alm.activated {
+                cell.hourLabel.textColor = activeColor
+                cell.colonLabel.textColor = activeColor
+                cell.minuteLabel.textColor = activeColor
+            } else {
+                cell.hourLabel.textColor = inactiveColor
+                cell.colonLabel.textColor = inactiveColor
+                cell.minuteLabel.textColor = inactiveColor
             }
         }
         return cell
@@ -108,7 +130,6 @@ class AlarmsTableViewController: UITableViewController {
         if segue.identifier == "newAlarm" {
             dest.creating = true
         } else if segue.identifier == "editAlarm" {
-            //NSLog("EDITING ALARM \(currentRow)")
             dest.creating = false
             let alm = AlarmRepo.singleton.list[currentRow]
             dest.alarm = alm

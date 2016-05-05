@@ -14,7 +14,7 @@ class Alarm: NSObject {
     var daysOfWeek = [false,false,false,false,false,false,false]
     var activated: Bool = false
     var title: String!
-    // TODO: - Figure out if this is Double or some other type
+
     var volume: Int = 0
 }
 

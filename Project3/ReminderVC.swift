@@ -14,10 +14,26 @@ class ReminderVC: UIViewController {
     @IBOutlet weak var activeSwitch:UISwitch!
     @IBOutlet weak var timePicker:UIDatePicker!
     
+    @IBAction func screenTap(sender:UIControl) {
+        titleField.resignFirstResponder()
+    }
+    @IBAction func titleTap(sender:UITextField) {
+        titleField.becomeFirstResponder()
+    }
+    
+    var creating:Bool = true
+    var reminder = Reminder()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        timePicker.minimumDate = NSDate()
+        if self.creating {
+            reminder = Reminder()
+        } else {
+            timePicker.date = NSDate(timeIntervalSinceReferenceDate: reminder.time)
+            activeSwitch.on = reminder.activated
+            titleField.text = reminder.title
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,15 +41,16 @@ class ReminderVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        //let dest = segue.destinationViewController
+        let rem = Reminder()
+        rem.time = timePicker.date.timeIntervalFromReferenceDateToThisDate()
+        rem.activated = activeSwitch.on
+        rem.title = titleField.text
+        reminder = rem
     }
-    */
+ 
 
 }
