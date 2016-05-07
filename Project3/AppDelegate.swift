@@ -43,9 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        let alert = UIAlertController(title: notification.alertAction, message: notification.alertBody, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
-        self.window?.rootViewController!.presentViewController(alert, animated: true, completion: nil)
+        if notification.alertAction == "Timer ended" {
+            let alert = UIAlertController(title: notification.alertAction, message: notification.alertBody, preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
+            self.window?.rootViewController!.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 
 
