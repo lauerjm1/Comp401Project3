@@ -72,7 +72,7 @@ class RemdinersTableViewController: UITableViewController {
             cell.titleLabel.text = rem.title
             if rem.activated {
                 cell.dateLabel.textColor = activeColor
-                cell.dateLabel.textColor = activeColor
+                cell.titleLabel.textColor = activeColor
             } else {
                 cell.dateLabel.textColor = inactiveColor
                 cell.titleLabel.textColor = inactiveColor
