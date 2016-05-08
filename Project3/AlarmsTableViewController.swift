@@ -42,6 +42,7 @@ class AlarmsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
+            deleteAlarm(AlarmRepo.singleton.list[indexPath.row])
             AlarmRepo.singleton.list.removeAtIndex(indexPath.row)
             tableView.reloadData()
         }
@@ -118,11 +119,104 @@ class AlarmsTableViewController: UITableViewController {
     @IBAction func saveAlarmToTable(segue:UIStoryboardSegue) {
         let source = segue.sourceViewController as! AlarmVC
         if source.creating {
-            AlarmRepo.singleton.list.append(source.alarm)
+            setUpAlarm(source.alarm)
         } else {
-            AlarmRepo.singleton.list[currentRow] = source.alarm
+            updateAlarm(source.alarm)
         }
         tableView.reloadData()
+    }
+    
+    func setUpAlarm(alarm:Alarm) {
+        for i in 0..<7 {
+            alarm.uid[i] = NSUUID().UUIDString
+        }
+        if alarm.activated {
+            createNotifications(forAlarm: alarm)
+        }
+        AlarmRepo.singleton.list.append(alarm)
+    }
+    
+    func updateAlarm(alarm:Alarm) {
+        if alarm.activated {
+            deleteNotifications(forAlarm: alarm)
+            createNotifications(forAlarm: alarm)
+        } else {
+            deleteNotifications(forAlarm: alarm)
+        }
+        AlarmRepo.singleton.list[currentRow] = alarm
+    }
+    
+    func deleteAlarm(alarm:Alarm) {
+        if alarm.activated {
+            deleteNotifications(forAlarm: alarm)
+        }
+    }
+    
+    func nextDayOfType(day:Int,hour:Int,minute:Int) -> (year:Int,month:Int,week:Int) {
+        let comps = NSDateComponents()
+        let flags:NSCalendarUnit = [.WeekOfYear, .Month, .Year]
+        let today = NSDate()
+        let todayComps = NSCalendar.currentCalendar().components(flags, fromDate: today)
+        comps.minute = minute
+        comps.hour = hour
+        comps.day = day
+        comps.weekOfYear = todayComps.weekOfYear
+        comps.month = todayComps.month
+        comps.year = todayComps.year
+        let thisWeeksDay = NSCalendar.currentCalendar().dateFromComponents(comps)
+        NSLog("\(thisWeeksDay)")
+        let result = today.compare(thisWeeksDay!)
+        if result == NSComparisonResult.OrderedAscending {
+            //thisWeeksDay is after today
+            //alarm should fire *this* week
+            return (todayComps.year, todayComps.month, todayComps.weekOfYear)
+        } else {
+            //thisWeeksDay is before today
+            //alarm should fire *next* week
+            let oneWeekIncrement = NSDateComponents()
+            oneWeekIncrement.weekOfYear = 1
+            let nextWeeksDay = NSCalendar.currentCalendar().dateByAddingComponents(oneWeekIncrement, toDate: thisWeeksDay!, options: NSCalendarOptions())
+            let nextWeeksDayComps = NSCalendar.currentCalendar().components(flags, fromDate: nextWeeksDay!)
+            return (nextWeeksDayComps.year, nextWeeksDayComps.month, nextWeeksDayComps.weekOfYear)
+        }
+    }
+    
+    func createNotifications(forAlarm alarm:Alarm) {
+        for k in 0..<7 {
+            if alarm.daysOfWeek[k] {
+                let nextDay = nextDayOfType(k, hour: alarm.hour, minute: alarm.minute)
+                let comps = NSDateComponents()
+                NSLog("\(nextDay.week)")
+                comps.year = nextDay.year
+                comps.month = nextDay.month
+                comps.weekOfYear = nextDay.week
+                comps.day = k
+                comps.hour = alarm.hour
+                comps.minute = alarm.minute
+                let alarmDate = NSCalendar.currentCalendar().dateFromComponents(comps)
+                NSLog("\(alarmDate)")
+                let note = UILocalNotification()
+                note.fireDate = alarmDate
+                note.alertAction = "Alarm!"
+                note.alertBody = alarm.title
+                note.userInfo?.updateValue(alarm.uid[k], forKey: "uid")
+                note.repeatInterval = NSCalendarUnit.WeekOfYear
+                UIApplication.sharedApplication().scheduleLocalNotification(note)
+            }
+        }
+    }
+    
+    func deleteNotifications(forAlarm alarm:Alarm) {
+        for k in alarm.uid {
+            for note in UIApplication.sharedApplication().scheduledLocalNotifications! {
+                if note.userInfo?["uid"] != nil {
+                    let id = note.userInfo!["uid"] as! String
+                    if k == id {
+                        UIApplication.sharedApplication().cancelLocalNotification(note)
+                    }
+                }
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

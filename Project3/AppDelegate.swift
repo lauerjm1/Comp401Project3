@@ -47,6 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let alert = UIAlertController(title: notification.alertAction, message: notification.alertBody, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
             self.window?.rootViewController!.presentViewController(alert, animated: true, completion: nil)
+        } else if notification.alertAction == "Alarm!" {
+            let alert = UIAlertController(title: notification.alertAction, message: notification.alertBody, preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
+            self.window?.rootViewController!.presentViewController(alert, animated: true, completion: nil)
         }
     }
 
