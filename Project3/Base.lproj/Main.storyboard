@@ -581,6 +581,7 @@
         <!--NoteVC-->
         <scene sceneID="eWh-vQ-kgy">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dU4-Ad-9fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="notevc" id="2zV-35-WT2" customClass="NoteVC" customModule="Project3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cai-rc-sBo"/>
@@ -590,7 +591,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndA-CR-ua1">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndA-CR-ua1">
                                 <rect key="frame" x="200" y="28" width="200" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="F2D-hV-OzQ"/>
@@ -600,17 +601,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Flip device or tap screen to deactivate)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heH-b8-FK0">
-                                <rect key="frame" x="149" y="289" width="303" height="21"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Flip device or swipe down)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heH-b8-FK0">
+                                <rect key="frame" x="196" y="289" width="209" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="CH9-1b-kEd"/>
-                                    <constraint firstAttribute="width" constant="303" id="hJh-GO-M8J"/>
+                                    <constraint firstAttribute="width" constant="209" id="hJh-GO-M8J"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOg-vR-g6e">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOg-vR-g6e">
                                 <rect key="frame" x="20" y="155" width="560" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1ui-eO-zEa"/>
@@ -639,7 +640,7 @@
                             </mask>
                         </variation>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="lAg-8L-dDy" appends="YES" id="lyi-OF-fND"/>
+                            <outletCollection property="gestureRecognizers" destination="joD-rQ-e3j" appends="YES" id="ujX-Kh-502"/>
                         </connections>
                     </view>
                     <connections>
@@ -647,12 +648,11 @@
                         <outlet property="bodyLabel" destination="aOg-vR-g6e" id="LQv-cn-EfY"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dU4-Ad-9fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="lAg-8L-dDy">
+                <swipeGestureRecognizer direction="down" id="joD-rQ-e3j">
                     <connections>
-                        <action selector="handleTap:" destination="2zV-35-WT2" id="XvP-9M-uZS"/>
+                        <action selector="handleSwipe:" destination="2zV-35-WT2" id="RuV-xY-Oqx"/>
                     </connections>
-                </tapGestureRecognizer>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-192" y="-460"/>
         </scene>

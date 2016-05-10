@@ -12,11 +12,11 @@ class NoteVC: UIViewController,UIGestureRecognizerDelegate {
     
     @IBOutlet weak var actionLabel:UILabel!
     @IBOutlet weak var bodyLabel:UILabel!
-    
+
     var action = " "
     var body = " "
     
-    @IBAction func handleTap(recog:UITapGestureRecognizer) {
+    @IBAction func handleSwipe(recog:UISwipeGestureRecognizer) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
