@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class NoteVC: UIViewController,UIGestureRecognizerDelegate {
     
@@ -16,8 +17,17 @@ class NoteVC: UIViewController,UIGestureRecognizerDelegate {
     var action = " "
     var body = " "
     
+    var timer = NSTimer()
+    let noteSound:SystemSoundID = 1016
+    let beepInterval:NSTimeInterval = 1
+    
     @IBAction func handleSwipe(recog:UISwipeGestureRecognizer) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func beep() {
+        AudioServicesPlaySystemSound(noteSound)
+        //NSLog("beeeeeeep")
     }
     
     override func viewDidLoad() {
@@ -25,6 +35,7 @@ class NoteVC: UIViewController,UIGestureRecognizerDelegate {
         self.view.backgroundColor = UIColor.whiteColor()
         actionLabel.text = action
         bodyLabel.text = body
+        timer = NSTimer.scheduledTimerWithTimeInterval(beepInterval, target: self, selector: #selector(NoteVC.beep), userInfo: nil, repeats: true)
         if MotionHandler.singleton.motionManager.accelerometerAvailable {
             MotionHandler.singleton.motionManager.accelerometerUpdateInterval = 0.1
             let queue = NSOperationQueue()
@@ -40,6 +51,7 @@ class NoteVC: UIViewController,UIGestureRecognizerDelegate {
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
+        timer.invalidate()
         MotionHandler.singleton.motionManager.stopAccelerometerUpdates()
     }
 
