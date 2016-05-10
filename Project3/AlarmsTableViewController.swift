@@ -159,12 +159,11 @@ class AlarmsTableViewController: UITableViewController {
         let todayComps = NSCalendar.currentCalendar().components(flags, fromDate: today)
         comps.minute = minute
         comps.hour = hour
-        comps.day = day
+        comps.weekday = day+1
         comps.weekOfYear = todayComps.weekOfYear
         comps.month = todayComps.month
         comps.year = todayComps.year
         let thisWeeksDay = NSCalendar.currentCalendar().dateFromComponents(comps)
-        NSLog("\(thisWeeksDay)")
         let result = today.compare(thisWeeksDay!)
         if result == NSComparisonResult.OrderedAscending {
             //thisWeeksDay is after today
@@ -186,15 +185,13 @@ class AlarmsTableViewController: UITableViewController {
             if alarm.daysOfWeek[k] {
                 let nextDay = nextDayOfType(k, hour: alarm.hour, minute: alarm.minute)
                 let comps = NSDateComponents()
-                NSLog("\(nextDay.week)")
                 comps.year = nextDay.year
                 comps.month = nextDay.month
                 comps.weekOfYear = nextDay.week
-                comps.day = k
+                comps.weekday = k+1 // TURNS OUT SWIFT NSDATE WEEKDAYS ARE 1-INDEXED, NOT 0-INDEXED
                 comps.hour = alarm.hour
                 comps.minute = alarm.minute
                 let alarmDate = NSCalendar.currentCalendar().dateFromComponents(comps)
-                NSLog("\(alarmDate)")
                 let note = UILocalNotification()
                 note.fireDate = alarmDate
                 note.alertAction = "Alarm!"

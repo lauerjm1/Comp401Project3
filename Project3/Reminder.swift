@@ -15,9 +15,10 @@ extension NSDate {
 }
 
 class Reminder: NSObject {
-    var time: NSTimeInterval = 0
-    var title: String!
-    var activated: Bool = false
+    var time:NSTimeInterval = 0
+    var title:String!
+    var activated:Bool = false
+    var uid:String!
     
     var volume: Int = 0
 }
@@ -73,6 +74,7 @@ class ReminderRepo {
         dict.updateValue(rem.time, forKey: "time")
         dict.updateValue(rem.title, forKey: "title")
         dict.updateValue(rem.activated, forKey: "activated")
+        dict.updateValue(rem.uid, forKey: "uid")
         dict.updateValue(rem.volume, forKey: "volume")
         return dict
     }

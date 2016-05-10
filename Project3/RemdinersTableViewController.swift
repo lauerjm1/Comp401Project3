@@ -42,6 +42,7 @@ class RemdinersTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
+            deleteReminder(ReminderRepo.singleton.list[indexPath.row])
             ReminderRepo.singleton.list.removeAtIndex(indexPath.row)
             tableView.reloadData()
         }
@@ -84,11 +85,54 @@ class RemdinersTableViewController: UITableViewController {
     @IBAction func saveReminderToTable(segue:UIStoryboardSegue) {
         let source = segue.sourceViewController as! ReminderVC
         if source.creating {
-            ReminderRepo.singleton.list.append(source.reminder)
+            setUpReminder(source.reminder)
         } else {
-            ReminderRepo.singleton.list[currentRow] = source.reminder
+            updateReminder(source.reminder)
         }
         tableView.reloadData()
+    }
+    
+    func setUpReminder(reminder:Reminder) {
+        reminder.uid = NSUUID().UUIDString
+        if reminder.activated {
+            createNotification(forReminder: reminder)
+        }
+        ReminderRepo.singleton.list.append(reminder)
+    }
+    
+    func updateReminder(reminder:Reminder) {
+        if reminder.activated {
+            deleteNotification(forReminder: reminder)
+            createNotification(forReminder: reminder)
+        } else {
+            deleteNotification(forReminder: reminder)
+        }
+        ReminderRepo.singleton.list[currentRow] = reminder
+    }
+    
+    func deleteReminder(reminder:Reminder) {
+        if reminder.activated {
+            deleteNotification(forReminder: reminder)
+        }
+    }
+    
+    func createNotification(forReminder reminder:Reminder) {
+        let note = UILocalNotification()
+        note.fireDate = NSDate(timeIntervalSinceReferenceDate: reminder.time)
+        note.alertAction = "Reminder!"
+        note.alertBody = reminder.title
+        note.userInfo?.updateValue(reminder.uid, forKey: "uid")
+        UIApplication.sharedApplication().scheduleLocalNotification(note)
+    }
+    
+    func deleteNotification(forReminder reminder:Reminder) {
+        for note in UIApplication.sharedApplication().scheduledLocalNotifications! {
+            if note.userInfo?["uid"] != nil {
+                if reminder.uid == note.userInfo!["uid"] as! String {
+                    UIApplication.sharedApplication().cancelLocalNotification(note)
+                }
+            }
+        }
     }
     
     // MARK: - Navigation
