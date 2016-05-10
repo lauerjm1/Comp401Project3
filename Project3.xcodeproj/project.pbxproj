@@ -19,7 +19,6 @@
 		D8A433091CC8572E007FA510 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A433071CC8572E007FA510 /* Main.storyboard */; };
 		D8A4330B1CC8572E007FA510 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8A4330A1CC8572E007FA510 /* Assets.xcassets */; };
 		D8A4330E1CC8572E007FA510 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A4330C1CC8572E007FA510 /* LaunchScreen.storyboard */; };
-		D8C2AAC61CE1692A005FAA27 /* Comp of TimerStopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C2AAC51CE1692A005FAA27 /* Comp of TimerStopWatchViewController.swift */; };
 		D8F9DA0A1CE158CF0090E47B /* TimerStopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9DA091CE158CF0090E47B /* TimerStopWatchViewController.swift */; };
 		D8F9DA0C1CE165010090E47B /* DoubleExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9DA0B1CE165010090E47B /* DoubleExtended.swift */; };
 /* End PBXBuildFile section */
@@ -39,7 +38,6 @@
 		D8A4330A1CC8572E007FA510 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8A4330D1CC8572E007FA510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8A4330F1CC8572E007FA510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8C2AAC51CE1692A005FAA27 /* Comp of TimerStopWatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comp of TimerStopWatchViewController.swift"; sourceTree = "<group>"; };
 		D8F9DA091CE158CF0090E47B /* TimerStopWatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerStopWatchViewController.swift; sourceTree = "<group>"; };
 		D8F9DA0B1CE165010090E47B /* DoubleExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtended.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,7 +80,6 @@
 				D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */,
 				D84BC21E1CC9E0EB00EA6627 /* RemdinersTableViewController.swift */,
 				D8F9DA091CE158CF0090E47B /* TimerStopWatchViewController.swift */,
-				D8C2AAC51CE1692A005FAA27 /* Comp of TimerStopWatchViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -191,7 +188,6 @@
 			files = (
 				D84BC21F1CC9E0EB00EA6627 /* RemdinersTableViewController.swift in Sources */,
 				D8A433041CC8572E007FA510 /* AppDelegate.swift in Sources */,
-				D8C2AAC61CE1692A005FAA27 /* Comp of TimerStopWatchViewController.swift in Sources */,
 				D84BC21D1CC9E0CD00EA6627 /* AlarmsTableViewController.swift in Sources */,
 				BB36FBB21CD52E67002E6319 /* ReminderCell.swift in Sources */,
 				D84BC2211CC9E1FB00EA6627 /* Alarm.swift in Sources */,
