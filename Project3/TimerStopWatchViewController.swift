@@ -17,6 +17,7 @@ class TimerStopWatchViewController: UIViewController {
     var timeLeftOnTimer: Double = 0.0
     var timerDidStart: Bool = false
     var timerIsPaused: Bool = true
+    var timerExpiredNotification: UILocalNotification = UILocalNotification()
     
     // MARK: - Stopwatch-related variables
     var stopWatchTimer: NSTimer = NSTimer()
@@ -52,6 +53,7 @@ class TimerStopWatchViewController: UIViewController {
                 if timerIsPaused {
                     startAndStopButton.setTitle("Start", forState: .Normal)
                     timerPauseTime = NSDate.timeIntervalSinceReferenceDate()
+                    UIApplication.sharedApplication().cancelLocalNotification(timerExpiredNotification)
                 } else {
                     startAndStopButton.setTitle("Stop", forState: .Normal)
                 }
@@ -64,6 +66,12 @@ class TimerStopWatchViewController: UIViewController {
                     timerEndTime = currentTime + totalTimerTime
                     timeLeftOnTimer = totalTimerTime
                     timerTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(TimerStopWatchViewController.updateTimer), userInfo: nil, repeats: true)
+                    
+                    timerExpiredNotification  = UILocalNotification()
+                    timerExpiredNotification.fireDate = NSDate(timeIntervalSinceReferenceDate: timerEndTime)
+                    timerExpiredNotification.alertAction = "Timer ended"
+                    timerExpiredNotification.alertBody = "\(Int(totalTimerTime)) seconds passed"
+                    UIApplication.sharedApplication().scheduleLocalNotification(timerExpiredNotification)
                 }
             }
         } else {
@@ -87,6 +95,7 @@ class TimerStopWatchViewController: UIViewController {
     @IBAction func resetButtonPressed(sender: UIButton) {
         if segmentedControl.selectedSegmentIndex == 0 {
             resetTimer()
+            UIApplication.sharedApplication().cancelLocalNotification(timerExpiredNotification)
         } else {
             resetStopWatch()
         }
@@ -158,6 +167,9 @@ class TimerStopWatchViewController: UIViewController {
                 let totalTimePaused = currentTime - timerPauseTime
                 timerEndTime += totalTimePaused
                 self.timerPauseTime = nil
+                
+                timerExpiredNotification.fireDate = NSDate(timeIntervalSinceReferenceDate: timerEndTime)
+                UIApplication.sharedApplication().scheduleLocalNotification(timerExpiredNotification)
             }
             
             timeLeftOnTimer = timerEndTime - currentTime
