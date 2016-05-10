@@ -66,8 +66,15 @@ class AlarmsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as! AlarmCell
         if indexPath.row < AlarmRepo.singleton.list.count {
             let alm = AlarmRepo.singleton.list[indexPath.row]
-            cell.hourLabel.text = String(alm.hour)
-            cell.minuteLabel.text = String(alm.minute)
+            let comps = NSDateComponents()
+            comps.hour = alm.hour
+            comps.minute = alm.minute
+            let time = NSCalendar.currentCalendar().dateFromComponents(comps)
+            let form = NSDateFormatter()
+            form.timeZone = NSTimeZone.localTimeZone()
+            form.dateStyle = .NoStyle
+            form.timeStyle = .ShortStyle
+            cell.timeLabel.text = form.stringFromDate(time!)
             if alm.daysOfWeek[0] == true && alm.activated {
                 cell.sunLabel.textColor = activeColor
             } else {
@@ -104,13 +111,9 @@ class AlarmsTableViewController: UITableViewController {
                 cell.satLabel.textColor = inactiveColor
             }
             if alm.activated {
-                cell.hourLabel.textColor = activeColor
-                cell.colonLabel.textColor = activeColor
-                cell.minuteLabel.textColor = activeColor
+                cell.timeLabel.textColor = activeColor
             } else {
-                cell.hourLabel.textColor = inactiveColor
-                cell.colonLabel.textColor = inactiveColor
-                cell.minuteLabel.textColor = inactiveColor
+                cell.timeLabel.textColor = inactiveColor
             }
         }
         return cell
