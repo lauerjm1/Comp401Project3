@@ -11,7 +11,6 @@
 		BB36FBB21CD52E67002E6319 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36FBB11CD52E67002E6319 /* ReminderCell.swift */; };
 		BB36FBB41CD53A39002E6319 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36FBB31CD53A39002E6319 /* AlarmVC.swift */; };
 		BB762B0C1CD81D5F0099DC43 /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB762B0B1CD81D5F0099DC43 /* ReminderVC.swift */; };
-		D84229321CD816AA0055B7EA /* TimerStopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84229311CD816AA0055B7EA /* TimerStopWatchViewController.swift */; };
 		D84BC21D1CC9E0CD00EA6627 /* AlarmsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */; };
 		D84BC21F1CC9E0EB00EA6627 /* RemdinersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BC21E1CC9E0EB00EA6627 /* RemdinersTableViewController.swift */; };
 		D84BC2211CC9E1FB00EA6627 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BC2201CC9E1FB00EA6627 /* Alarm.swift */; };
@@ -20,6 +19,9 @@
 		D8A433091CC8572E007FA510 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A433071CC8572E007FA510 /* Main.storyboard */; };
 		D8A4330B1CC8572E007FA510 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8A4330A1CC8572E007FA510 /* Assets.xcassets */; };
 		D8A4330E1CC8572E007FA510 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A4330C1CC8572E007FA510 /* LaunchScreen.storyboard */; };
+		D8C2AAC61CE1692A005FAA27 /* Comp of TimerStopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C2AAC51CE1692A005FAA27 /* Comp of TimerStopWatchViewController.swift */; };
+		D8F9DA0A1CE158CF0090E47B /* TimerStopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9DA091CE158CF0090E47B /* TimerStopWatchViewController.swift */; };
+		D8F9DA0C1CE165010090E47B /* DoubleExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9DA0B1CE165010090E47B /* DoubleExtended.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +29,6 @@
 		BB36FBB11CD52E67002E6319 /* ReminderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		BB36FBB31CD53A39002E6319 /* AlarmVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		BB762B0B1CD81D5F0099DC43 /* ReminderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
-		D84229311CD816AA0055B7EA /* TimerStopWatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerStopWatchViewController.swift; sourceTree = "<group>"; };
 		D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmsTableViewController.swift; sourceTree = "<group>"; };
 		D84BC21E1CC9E0EB00EA6627 /* RemdinersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemdinersTableViewController.swift; sourceTree = "<group>"; };
 		D84BC2201CC9E1FB00EA6627 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
@@ -38,6 +39,9 @@
 		D8A4330A1CC8572E007FA510 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8A4330D1CC8572E007FA510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8A4330F1CC8572E007FA510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8C2AAC51CE1692A005FAA27 /* Comp of TimerStopWatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comp of TimerStopWatchViewController.swift"; sourceTree = "<group>"; };
+		D8F9DA091CE158CF0090E47B /* TimerStopWatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerStopWatchViewController.swift; sourceTree = "<group>"; };
+		D8F9DA0B1CE165010090E47B /* DoubleExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtended.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 			children = (
 				D84BC2201CC9E1FB00EA6627 /* Alarm.swift */,
 				D84BC2221CC9E34100EA6627 /* Reminder.swift */,
+				D8F9DA0B1CE165010090E47B /* DoubleExtended.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -76,7 +81,8 @@
 				BB762B0B1CD81D5F0099DC43 /* ReminderVC.swift */,
 				D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */,
 				D84BC21E1CC9E0EB00EA6627 /* RemdinersTableViewController.swift */,
-				D84229311CD816AA0055B7EA /* TimerStopWatchViewController.swift */,
+				D8F9DA091CE158CF0090E47B /* TimerStopWatchViewController.swift */,
+				D8C2AAC51CE1692A005FAA27 /* Comp of TimerStopWatchViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -184,14 +190,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D84BC21F1CC9E0EB00EA6627 /* RemdinersTableViewController.swift in Sources */,
-				D84229321CD816AA0055B7EA /* TimerStopWatchViewController.swift in Sources */,
 				D8A433041CC8572E007FA510 /* AppDelegate.swift in Sources */,
+				D8C2AAC61CE1692A005FAA27 /* Comp of TimerStopWatchViewController.swift in Sources */,
 				D84BC21D1CC9E0CD00EA6627 /* AlarmsTableViewController.swift in Sources */,
 				BB36FBB21CD52E67002E6319 /* ReminderCell.swift in Sources */,
 				D84BC2211CC9E1FB00EA6627 /* Alarm.swift in Sources */,
 				D84BC2231CC9E34100EA6627 /* Reminder.swift in Sources */,
+				D8F9DA0A1CE158CF0090E47B /* TimerStopWatchViewController.swift in Sources */,
 				BB36FBB41CD53A39002E6319 /* AlarmVC.swift in Sources */,
 				BB762B0C1CD81D5F0099DC43 /* ReminderVC.swift in Sources */,
+				D8F9DA0C1CE165010090E47B /* DoubleExtended.swift in Sources */,
 				BB36FBAF1CD52ADE002E6319 /* AlarmCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
