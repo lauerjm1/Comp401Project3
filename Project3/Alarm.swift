@@ -14,7 +14,8 @@ class Alarm: NSObject {
     var daysOfWeek = [false,false,false,false,false,false,false]
     var activated: Bool = false
     var title: String!
-    // TODO: - Figure out if this is Double or some other type
+    var uid:[String] = ["","","","","","",""]
+    
     var volume: Int = 0
 }
 
@@ -58,11 +59,8 @@ class AlarmRepo {
     func interpretDictToAlarm(dict:Dictionary<String,AnyObject>) -> Alarm {
         let alm = Alarm()
         for(k,v) in dict {
-            //NSLog("Seeing \(v) as \(k)")
             if alm.respondsToSelector(NSSelectorFromString(k)) {
-                alm.setValue(v, forKey: k)
-                //NSLog("Reading \(v) into \(k)")
-            }
+                alm.setValue(v, forKey: k)            }
         }
         return alm
     }
@@ -74,6 +72,7 @@ class AlarmRepo {
         dict.updateValue(alm.daysOfWeek, forKey: "daysOfWeek")
         dict.updateValue(alm.activated, forKey: "activated")
         dict.updateValue(alm.title, forKey: "title")
+        dict.updateValue(alm.uid, forKey: "uid")
         dict.updateValue(alm.volume, forKey: "volume")
         return dict
     }

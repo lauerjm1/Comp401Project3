@@ -10,6 +10,10 @@ import UIKit
 
 class RemdinersTableViewController: UITableViewController {
     
+    let activeColor = UIColor.blackColor()
+    let inactiveColor = UIColor.lightGrayColor()
+    var currentRow:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,8 +28,25 @@ class RemdinersTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            deleteReminder(ReminderRepo.singleton.list[indexPath.row])
+            ReminderRepo.singleton.list.removeAtIndex(indexPath.row)
+            tableView.reloadData()
+        }
+    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -34,58 +55,97 @@ class RemdinersTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ReminderRepo.singleton.list.count
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        currentRow = indexPath.row
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegueWithIdentifier("editReminder", sender: tableView.cellForRowAtIndexPath(indexPath))
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reminderCell", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("reminderCell", forIndexPath: indexPath) as! ReminderCell
+        if indexPath.row < ReminderRepo.singleton.list.count {
+            let rem = ReminderRepo.singleton.list[indexPath.row]
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = .MediumStyle
+            formatter.timeStyle = .MediumStyle
+            cell.dateLabel.text = formatter.stringFromDate(NSDate(timeIntervalSinceReferenceDate: rem.time))
+            cell.titleLabel.text = rem.title
+            if rem.activated {
+                cell.dateLabel.textColor = activeColor
+                cell.titleLabel.textColor = activeColor
+            } else {
+                cell.dateLabel.textColor = inactiveColor
+                cell.titleLabel.textColor = inactiveColor
+            }
+        }
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    @IBAction func saveReminderToTable(segue:UIStoryboardSegue) {
+        let source = segue.sourceViewController as! ReminderVC
+        if source.creating {
+            setUpReminder(source.reminder)
+        } else {
+            updateReminder(source.reminder)
+        }
+        tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func setUpReminder(reminder:Reminder) {
+        reminder.uid = NSUUID().UUIDString
+        if reminder.activated {
+            createNotification(forReminder: reminder)
+        }
+        ReminderRepo.singleton.list.append(reminder)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    func updateReminder(reminder:Reminder) {
+        if reminder.activated {
+            deleteNotification(forReminder: reminder)
+            createNotification(forReminder: reminder)
+        } else {
+            deleteNotification(forReminder: reminder)
+        }
+        ReminderRepo.singleton.list[currentRow] = reminder
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func deleteReminder(reminder:Reminder) {
+        if reminder.activated {
+            deleteNotification(forReminder: reminder)
+        }
     }
-    */
-
-    /*
+    
+    func createNotification(forReminder reminder:Reminder) {
+        let note = UILocalNotification()
+        note.fireDate = NSDate(timeIntervalSinceReferenceDate: reminder.time)
+        note.alertAction = "Reminder!"
+        note.alertBody = reminder.title
+        note.userInfo?.updateValue(reminder.uid, forKey: "uid")
+        UIApplication.sharedApplication().scheduleLocalNotification(note)
+    }
+    
+    func deleteNotification(forReminder reminder:Reminder) {
+        for note in UIApplication.sharedApplication().scheduledLocalNotifications! {
+            if note.userInfo?["uid"] != nil {
+                if reminder.uid == note.userInfo!["uid"] as! String {
+                    UIApplication.sharedApplication().cancelLocalNotification(note)
+                }
+            }
+        }
+    }
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let dest = segue.destinationViewController as! ReminderVC
+        if segue.identifier == "newReminder" {
+            dest.creating = true
+        } else if segue.identifier == "editReminder" {
+            dest.creating = false
+            let rem = ReminderRepo.singleton.list[currentRow]
+            dest.reminder = rem
+        }
     }
-    */
 
 }

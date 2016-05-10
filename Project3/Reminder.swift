@@ -8,14 +8,19 @@
 
 import UIKit
 
+extension NSDate {
+    func timeIntervalFromReferenceDateToThisDate() -> NSTimeInterval {
+        return self.timeIntervalSinceDate(NSDate(timeIntervalSinceReferenceDate: 0))
+    }
+}
+
 class Reminder: NSObject {
-
-    // FIXME: - Should this be a date? I couldn't remember.
-    var time: Int!
-    var title: String!
-    // FIXME: - Again, double or int?
-    var volume: Int!
-
+    var time:NSTimeInterval = 0
+    var title:String!
+    var activated:Bool = false
+    var uid:String!
+    
+    var volume: Int = 0
 }
 
 class ReminderRepo {
@@ -68,6 +73,8 @@ class ReminderRepo {
         var dict = Dictionary<String,AnyObject>()
         dict.updateValue(rem.time, forKey: "time")
         dict.updateValue(rem.title, forKey: "title")
+        dict.updateValue(rem.activated, forKey: "activated")
+        dict.updateValue(rem.uid, forKey: "uid")
         dict.updateValue(rem.volume, forKey: "volume")
         return dict
     }

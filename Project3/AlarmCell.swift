@@ -11,6 +11,7 @@ import UIKit
 class AlarmCell: UITableViewCell {
     
     @IBOutlet weak var hourLabel:UILabel!
+    @IBOutlet weak var colonLabel:UILabel!
     @IBOutlet weak var minuteLabel:UILabel!
     
     @IBOutlet weak var sunLabel:UILabel!
@@ -20,8 +21,6 @@ class AlarmCell: UITableViewCell {
     @IBOutlet weak var thuLabel:UILabel!
     @IBOutlet weak var friLabel:UILabel!
     @IBOutlet weak var satLabel:UILabel!
-    
-    @IBOutlet weak var activatedButton:UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
