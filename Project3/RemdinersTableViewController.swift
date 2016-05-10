@@ -68,7 +68,7 @@ class RemdinersTableViewController: UITableViewController {
             let rem = ReminderRepo.singleton.list[indexPath.row]
             let formatter = NSDateFormatter()
             formatter.dateStyle = .MediumStyle
-            formatter.timeStyle = .MediumStyle
+            formatter.timeStyle = .ShortStyle
             cell.dateLabel.text = formatter.stringFromDate(NSDate(timeIntervalSinceReferenceDate: rem.time))
             cell.titleLabel.text = rem.title
             if rem.activated {

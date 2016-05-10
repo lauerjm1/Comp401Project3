@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         let userNotificationTypes = UIUserNotificationType([.Badge, .Alert, .Sound])
@@ -45,17 +44,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         if notification.alertAction == "Timer ended" {
-            let alert = UIAlertController(title: notification.alertAction, message: notification.alertBody, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
-            self.window?.rootViewController!.presentViewController(alert, animated: true, completion: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("notevc") as! NoteVC
+            vc.action = notification.alertAction!
+            vc.body = notification.alertBody!
+            self.window?.rootViewController?.presentViewController(vc, animated: true, completion: nil)
         } else if notification.alertAction == "Alarm!" {
-            let alert = UIAlertController(title: notification.alertAction, message: notification.alertBody, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
-            self.window?.rootViewController!.presentViewController(alert, animated: true, completion: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("notevc") as! NoteVC
+            vc.action = notification.alertAction!
+            vc.body = notification.alertBody!
+            self.window?.rootViewController?.presentViewController(vc, animated: true, completion: nil)
         } else if notification.alertAction == "Reminder!" {
-            let alert = UIAlertController(title: notification.alertAction, message: notification.alertBody, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
-            self.window?.rootViewController!.presentViewController(alert, animated: true, completion: nil)
+            //let alert = UIAlertController(title: notification.alertAction, message: notification.alertBody, preferredStyle: .Alert)
+            //alert.addAction(UIAlertAction(title: "Done", style: .Cancel, handler: nil))
+            //self.window?.rootViewController!.presentViewController(alert, animated: true, completion: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("notevc") as! NoteVC
+            vc.action = notification.alertAction!
+            vc.body = notification.alertBody!
+            self.window?.rootViewController?.presentViewController(vc, animated: true, completion: nil)
         }
     }
 

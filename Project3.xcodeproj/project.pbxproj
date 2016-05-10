@@ -10,6 +10,8 @@
 		BB36FBAF1CD52ADE002E6319 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36FBAE1CD52ADE002E6319 /* AlarmCell.swift */; };
 		BB36FBB21CD52E67002E6319 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36FBB11CD52E67002E6319 /* ReminderCell.swift */; };
 		BB36FBB41CD53A39002E6319 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36FBB31CD53A39002E6319 /* AlarmVC.swift */; };
+		BB5F73801CE163900028E463 /* NoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5F737F1CE163900028E463 /* NoteVC.swift */; };
+		BB5F73821CE16F440028E463 /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5F73811CE16F440028E463 /* Motion.swift */; };
 		BB762B0C1CD81D5F0099DC43 /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB762B0B1CD81D5F0099DC43 /* ReminderVC.swift */; };
 		D84BC21D1CC9E0CD00EA6627 /* AlarmsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */; };
 		D84BC21F1CC9E0EB00EA6627 /* RemdinersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BC21E1CC9E0EB00EA6627 /* RemdinersTableViewController.swift */; };
@@ -27,6 +29,8 @@
 		BB36FBAE1CD52ADE002E6319 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		BB36FBB11CD52E67002E6319 /* ReminderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		BB36FBB31CD53A39002E6319 /* AlarmVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
+		BB5F737F1CE163900028E463 /* NoteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteVC.swift; sourceTree = "<group>"; };
+		BB5F73811CE16F440028E463 /* Motion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
 		BB762B0B1CD81D5F0099DC43 /* ReminderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
 		D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmsTableViewController.swift; sourceTree = "<group>"; };
 		D84BC21E1CC9E0EB00EA6627 /* RemdinersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemdinersTableViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 		D84BC2241CC9E34C00EA6627 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BB5F73811CE16F440028E463 /* Motion.swift */,
 				D84BC2201CC9E1FB00EA6627 /* Alarm.swift */,
 				D84BC2221CC9E34100EA6627 /* Reminder.swift */,
 				D8F9DA0B1CE165010090E47B /* DoubleExtended.swift */,
@@ -75,6 +80,7 @@
 		D84BC2251CC9E3B200EA6627 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BB5F737F1CE163900028E463 /* NoteVC.swift */,
 				BB36FBB31CD53A39002E6319 /* AlarmVC.swift */,
 				BB762B0B1CD81D5F0099DC43 /* ReminderVC.swift */,
 				D84BC21C1CC9E0CD00EA6627 /* AlarmsTableViewController.swift */,
@@ -194,6 +200,7 @@
 				D84BC2231CC9E34100EA6627 /* Reminder.swift in Sources */,
 				D8F9DA0A1CE158CF0090E47B /* TimerStopWatchViewController.swift in Sources */,
 				BB36FBB41CD53A39002E6319 /* AlarmVC.swift in Sources */,
+				BB5F73801CE163900028E463 /* NoteVC.swift in Sources */,
 				BB762B0C1CD81D5F0099DC43 /* ReminderVC.swift in Sources */,
 				D8F9DA0C1CE165010090E47B /* DoubleExtended.swift in Sources */,
 				BB36FBAF1CD52ADE002E6319 /* AlarmCell.swift in Sources */,
